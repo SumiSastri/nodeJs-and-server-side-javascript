@@ -86,3 +86,15 @@ This application is listening for input data, the application will be open and r
 
 For more on Events documentation:[https://nodejs.org/docs/latest-v12.x/api/events.html]
 For the `emitter.on` method documentation[https://nodejs.org/docs/latest-v12.x/api/events.html#events_emitter_on_eventname_listener]
+
+## Async timer methods
+
+The `setTimeout` method, is a global method (note out is written in lower case!) takes two arguments, the first argument is when the timeout should occur (it is a function call when for when timer stops) and the second argument is the number of milliseconds that the timeout is set to.
+
+`clear timeout`
+
+`set interval`
+
+`clear interval`
+
+The second argument that we're going to use is the time that we should wait for this delay. So I'll go ahead and add the wait time. There we go. So now this process will run asynchronously for three seconds. Once we've waited for three seconds, the timer finished function will be invoked and we should see the term done logged to the console. Let's go ahead and open up our terminal and run our application. Node timers and we see our message and after three seconds we see the term done logged to the console

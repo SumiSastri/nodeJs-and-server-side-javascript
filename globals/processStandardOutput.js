@@ -14,7 +14,7 @@ const ask = (i = 0) => {
   process.stdout.write(`\n\n\n ${questions[i]}`);
   // process.stdout.write(` > `); uncomment to see the difference
   process.stdout.write(`\n\n\n > `);
-  // every character must be defined including white spaces with node
+  // every character must be defined including white spaces with nodefirst argument is the function to invoke when the timer is completed
 };
 // function call - default is 0 the first question
 ask();
