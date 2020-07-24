@@ -19,5 +19,5 @@ app.post("/messages", (req, res) => {
   res.sendStatus(200);
 });
 app.listen(port, () =>
-  console.log(`demo-app server listening at http://localhost:${port}`)
+  console.log(`js-app server listening at http://localhost:${port}`)
 );

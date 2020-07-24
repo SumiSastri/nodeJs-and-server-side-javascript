@@ -1,8 +1,8 @@
 {
-  "name": "05_01",
+  "name": "js-app",
   "version": "1.0.0",
   "description": "",
-  "main": "/server.js",
+  "main": "server-side/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
