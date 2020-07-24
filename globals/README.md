@@ -89,12 +89,18 @@ For the `emitter.on` method documentation[https://nodejs.org/docs/latest-v12.x/a
 
 ## Async timer methods
 
-The `setTimeout` method, is a global method (note out is written in lower case!) takes two arguments, the first argument is when the timeout should occur (it is a function call when for when timer stops) and the second argument is the number of milliseconds that the timeout is set to.
+Documentation [https://nodejs.org/en/docs/guides/timers-in-node/]
 
-`clear timeout`
+The `setTimeout` method, is a global method (note out is written in lower case!), therefore does not need to be called with the `require` method. `setTimeout()`can be used to schedule code execution after a designated amount of milliseconds. In Node.js it takes two arguments, the first argument is when the timeout should occur (it is a function call when for when timer stops) and the second argument is the number of milliseconds that the timeout is set to (arg is a number).
 
-`set interval`
+In that way it is different to the vanilla JavaScript method where the first arg is a string. It also makes the node version more flexible as the function call does not only have to perform an execution of when the timer stops but can take its own args.
 
-`clear interval`
+**Canceling the setTimeout method**
 
-The second argument that we're going to use is the time that we should wait for this delay. So I'll go ahead and add the wait time. There we go. So now this process will run asynchronously for three seconds. Once we've waited for three seconds, the timer finished function will be invoked and we should see the term done logged to the console. Let's go ahead and open up our terminal and run our application. Node timers and we see our message and after three seconds we see the term done logged to the console
+`setTimeout()` returns a Timeout object that can be used to reference the timeout that was set. This returned object can be used to cancel the timeout.
+
+The methods`clearImmediate(immediate)` or `clearTimeout(timeout)` can be used as well as the `clearInterval(timeout)` with a function call as a param.
+
+`set interval` One way to clear a setTimeout is to set an interval between each timeOut call. Just above the setTimeout a setInterval function that behaves in the same way as a setTimeout can be written. The two args are a function and the next function is the time that the interval should be set at. It is a recursive method that needs the `clearInterval(timeout)` method to stop the function from running in an endless loop.
+
+`clear interval` - we set the `setInterval` method to a variable and pass this as an arg of the `stopTimer()` function, which now takes the `clearInterval` method as one of its args.

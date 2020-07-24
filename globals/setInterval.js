@@ -1,18 +1,20 @@
-const waitTime = 5000;
+const delay = 5000;
+// clears and restarts after this interval
 const waitInterval = 500;
 let currentTime = 0;
+console.log(`Timer delay set at ${delay / 1000} seconds`);
 
-const incTime = () => {
+//function declaration to increase the delay time and setInterval between calls - runs in an infinite loop unless cleared
+const incDelay = () => {
   currentTime += waitInterval;
-  const p = Math.floor((currentTime / waitTime) * 100);
+  console.log(`delay increased by ${currentTime / 1000} seconds`);
 };
+console.log(`Timer delay set at ${delay / 1000} seconds`);
 
-console.log(`setting a ${waitTime / 1000} second delay`);
+// function declaration - called as first arg of the global method
+// needs to be modified so that it can be cleared
+const stopTimer = () =>
+  console.log("Timer stopped successfully after 5 seconds");
 
-const timerFinished = () => {
-  clearInterval(interval);
-  console.log("done");
-};
-
-const interval = setInterval(incTime, waitInterval);
-setTimeout(timerFinished, waitTime);
+setInterval(incDelay, waitInterval);
+setTimeout(stopTimer, delay);
