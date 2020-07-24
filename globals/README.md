@@ -1,3 +1,5 @@
+# What is the Node global object?
+
 The global object contains all of the objects, values, and methods that we can use in a Node.js file without having to import any functionality.
 
 A full list of global objects and how they can be used [https://nodejs.org/docs/latest-v12.x/api/globals.html]
@@ -16,7 +18,7 @@ Using the `require()` method can be used to load external modules. It refers to 
 
 We can either load modules that have shipped with our installation of Node, or modules that we install with npm, or other modules that we create, just other Node files in our directory structure.
 
-## The path object and its methods
+## The Path object and its methods
 
 The path object is accessed via a module and gives us tools that we can use to help us work with path strings.
 
@@ -32,7 +34,7 @@ In React, and other JS libraries, when we are importing we are importing from an
 
 The path module and methods documentation[https://nodejs.org/docs/latest-v12.x/api/path.html]
 
-## The process object
+## The Process object
 
 - The process object contains information about the current process as well as methods to allows us to interact with that process.
   - `process.pid()` returns the process Id
@@ -87,7 +89,7 @@ This application is listening for input data, the application will be open and r
 For more on Events documentation:[https://nodejs.org/docs/latest-v12.x/api/events.html]
 For the `emitter.on` method documentation[https://nodejs.org/docs/latest-v12.x/api/events.html#events_emitter_on_eventname_listener]
 
-## Async timer methods
+## Async Timer methods
 
 Documentation [https://nodejs.org/en/docs/guides/timers-in-node/]
 
@@ -104,3 +106,5 @@ The methods`clearImmediate(immediate)` or `clearTimeout(timeout)` can be used as
 `set interval` One way to clear a setTimeout is to set an interval between each timeOut call. Just above the setTimeout a setInterval function that behaves in the same way as a setTimeout can be written. The two args are a function and the next function is the time that the interval should be set at. It is a recursive method that needs the `clearInterval(timeout)` method to stop the function from running in an endless loop.
 
 `clear interval` - we set the `setInterval` method to a variable and pass this as an arg of the `stopTimer()` function, which now takes the `clearInterval` method as one of its args.
+
+Adding process methods to the code block can improve the readablity of the code in the terminal - `countDownTimer.js` the example in this file demonstrates how the timers are improved with the `process.stdout` methods and array-chaining methods.
