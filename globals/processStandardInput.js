@@ -28,7 +28,7 @@ process.stdin.on("data", (data) => {
 });
 // when the process exits then run this block of code
 process.on("exit", () => {
-  // deconstruct the array of answers into the elements of the array to use dynamically when passed into the log method
+  // deconstruct the array of answers into the elements of the array to use dynamically when passed into the log method as local variables
   const [name, activity, lang] = answers;
   console.log(`
 
