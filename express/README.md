@@ -6,8 +6,17 @@ It is used with the Node module system and follows the CommonJS syntax. It also 
 
 To use the ExpressJS framework, it needs to be installed into a project with npm or nvm. The folder intantiated with node and then the package installed.
 
+For the client-side static files and the dynamic data from the server to be connected to each other, node needs to be instantiated in the folders and files.
+
 `npm init - y`
+
+Once you have node you have a package-JSON file you can now install express.
+
 `npm install express --save`
+
+In the package-JSON make sure your main file is set to the name that you have given your express server - `server.js` in the demo-app example and set up your start-scripts `"start": "node server.js"` for the demo-app.
+
+## Setting up the back-end server and middware
 
 A vanilla server can be quickly spun-up using the easy to follow documentation to get started.
 
@@ -32,6 +41,10 @@ app.listen(port, () =>
 ```
 
 The `app.listen()` method allows you to check if the port is listening and accepting changes. It binds and listens for connections on the specified host and port. The method returns a HTTP server object.
+
+The `app.use()` method takes the static files you are going to use to connect the back-end and front-end.
+
+`app.use(express.static(__dirname));`
 
 Documentation[https://expressjs.com/en/4x/api.html#app.listen]
 
