@@ -22,5 +22,14 @@ In the `utils.js` file, we look at one method `util.log(v8.getHeapStatistics())`
 
 ## Readline Module
 
-- readline is another module that can be used,
-- the methods available are `createInterface()` and `question()` documentation [https://nodejs.org/docs/latest-v13.x/api/readline.html#readline_rl_question_query_callback]
+- readline is another module that can be used
+- the methods available are `createInterface()`
+- the createInterface() method args are an object with the input and output, it is another way to use the stdInput/ stdOutput methods without using the process object
+- the `question()` method interacts with the terminal in the same way that we used the q&a app with the process module.
+  Documentation [https://nodejs.org/docs/latest-v13.x/api/readline.html#readline_rl_question_query_callback]
+
+## Exporting modules
+
+The export method allows us to export modules and import them into other modules so that the code base can be shared.
+
+`module.exports = "Hello World";`, to import the module we need to specify the file path and save the export in a variable to reuse it. `const greet = require("./exportModuleExample");`

@@ -13,6 +13,7 @@ const questions = [
 
 const collectAnswers = (questions, done) => {
   const answers = [];
+  // destructure the array to get first question
   const [firstQuestion] = questions;
 
   const questionAnswered = answer => {
