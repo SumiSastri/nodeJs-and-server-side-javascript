@@ -36,6 +36,20 @@ The export method allows us to export modules and import them into other modules
 
 The module scope remains in the module, therefore we need to call functions within the module and not in the imported module. So while we have a function declaration for the counter in `exportModuleExample.js` we also need to call the result of this function within the module and consume it in the import file.
 
-**Custom modules** The questions and answers can be custom modules where the answer module is consumed by the question module.
+## Exporting modules
+
+The questions and answers can be custom modules where the answer module is consumed by the question module.
 
 The whole answer function can be exported as a module in see `answers.js` to consume this code we create the `questions.js` module and display the answers in the `showAnswers` function that we write that consumes the code of the `showAnswers` module, we can reuse the `showAnswers` code multiple times in any file path.
+
+## Event handling
+
+The events object can be imported and intatiated like all core modules.
+
+```
+const events = require("events");
+const emitter = new events.EventEmitter();
+```
+
+There are several event methods, the `emitter.emit()` is one. Using events in the debugging process is good as it echoes back whatever has been logged and is a good second check to the code working as intented or not. Example in `events.js`
+Documentation[https://nodejs.org/docs/latest-v12.x/api/events.html]
