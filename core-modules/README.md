@@ -33,3 +33,9 @@ In the `utils.js` file, we look at one method `util.log(v8.getHeapStatistics())`
 The export method allows us to export modules and import them into other modules so that the code base can be shared.
 
 `module.exports = "Hello World";`, to import the module we need to specify the file path and save the export in a variable to reuse it. `const greet = require("./exportModuleExample");`
+
+The module scope remains in the module, therefore we need to call functions within the module and not in the imported module. So while we have a function declaration for the counter in `exportModuleExample.js` we also need to call the result of this function within the module and consume it in the import file.
+
+**Custom modules** The questions and answers can be custom modules where the answer module is consumed by the question module.
+
+The whole answer function can be exported as a module in see `answers.js` to consume this code we create the `questions.js` module and display the answers in the `showAnswers` function that we write that consumes the code of the `showAnswers` module, we can reuse the `showAnswers` code multiple times in any file path.
