@@ -70,6 +70,24 @@ The Express Router also has its own methods but to run routes, it is the Express
 `app.put()` - updates the data either on the FE or the dB
 `app.delete()` - deletes data either on the FE or dB
 
+## Request and response methods
+
+The request methods that are frequently used are `req.body` or the body of the data, `req.cookies()` for cookie drops, `req.params()` are some of the commonly used methods - Documentation [https://expressjs.com/en/4x/api.html#req]
+
+Response methods, some useful methods are `res.send()` to send the response back, `res.download()` to download resources, `res.redirect()` to redirect resources - Documentation [https://expressjs.com/en/4x/api.html#res]
+
+## More on Express midware
+
+`app.use()` is the method to consume all midware
+
+- json parses incoming requests with JSON payloads. Documentation[https://expressjs.com/en/4x/api.html#express.json]
+- static files serves static assets such as HTML files, images. Documentation [https://expressjs.com/en/4x/api.html#express.static]
+- url encloded parses incoming requests with URL-encoded payloads Documentation[https://expressjs.com/en/4x/api.html#express.urlencoded]
+- error [https://expressjs.com/en/guide/error-handling.html]
+- the way that the midware is stacked is important - the error midware needs to be last
+- error midware to custom handle errors is best used just above `app.listen()` if there is no explicit handler, express uses its own handler
+- third-party midware like cors, favicon, etc., can be added documentation for each shows you how to import the third party library and use it with the methods available [https://expressjs.com/en/guide/using-middleware.html#middleware.third-party] as well as a cheatsheet[https://expressjs.com/en/resources/middleware.html]
+
 ## RESOURCES
 
 - [https://expressjs.com/en/4x/api.html#app]

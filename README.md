@@ -37,3 +37,29 @@ Good articles to read to understand how and why you would use Node.js as the bac
 
 Netgurus guide [https://www.netguru.com/blog/use-node-js-backend] a good pdf that can be downloaded is on the website
 Why use Node - Medium blog [https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e]
+
+# Scaffolding with babel
+
+- `npm init -y` - for package.json
+- `npm install babel-cli, babel-preset.env, babel.preset.stage0, express, mongoose, nodemon body-parser` for
+- set up file`.babelrc` set up presets `{"presets": [ "env", "stage-0"]}` use stage-0 and above
+- set up start scripts with nodemon and babel (file path to the server should be what you call your server, in the start file you just need the file name not the whole file path)
+
+```
+{
+  "name": "js-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "filepath/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --exec babel-node -e js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+```
