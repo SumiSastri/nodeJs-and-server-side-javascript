@@ -1,13 +1,14 @@
-const showAnswers = require("./answers");
+// CONSUMER
+const displayAnswers = require("./answers");
 
 const questions = [
-    "What is your name?",
-    "What do you enjoy about being a programmer?",
-    "What is your preferred programming language?", "
+  "What is your name? ",
+  "Where do you live? ",
+  "What are you going to do with node js? ",
 ];
 
-showAnswers(questions, answers => {
-    console.log("Thanks for your answers");
-    console.log(answers, "LOGS ANSWERS");
-    process.exit()
-})
+displayAnswers(questions, (answers) => {
+  console.log("Thank you for your answers. ");
+  console.log(answers);
+  process.exit();
+});
