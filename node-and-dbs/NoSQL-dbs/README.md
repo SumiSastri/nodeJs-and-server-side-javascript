@@ -24,6 +24,52 @@ MongoDb - cloud based
     Replace `<username>` and `<password>` with the password and username you have stored in steps 8 and 9 (Save this string as well - make sure you have taken out the placeholder greater and less than signs around the username and password these are just placeholders)
 13. Should you lose your place on the MongoCloud got back to click connect,
 14. Now go back to your server to connect the local app to the db
-15. First create a dotenv file `touch .env` add `mongodb+srv://<username>:<password>@cluster0.xfd8y.mongodb.net/test` WITHOUT THE PASSWORD AND USER NAME to the file
+15. First create a dotenv file `touch .env` add ```mongodb+srv://<username>:<password>@cluster0.xfd8y.mongodb.net/test` WITHOUT THE PASSWORD AND USER NAME to the file and it is NOT a string
 16. Make sure that the .env file is ignored in your `.gitignore` files
 17. Now git commit to your git repository and check that the files have been ignored
+18. Now set up mongoDB and the connection to the mongoCloudDB
+
+```
+require("dotenv").config();
+
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 5000;
+const cors = require("cors");
+
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+
+app.use(cors());
+app.use(express.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send("your app is working");
+});
+
+const dBurl = process.env.DB_CONNECTION;
+mongoose.connect(
+  dBurl,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  },
+  (error) => {
+    if (!error) {
+      console.log("mongo-db connection working");
+    } else {
+      console.log("check mongo-db connection", error);
+    }
+  }
+);
+mongoose.Promise = global.Promise;
+
+app.listen(PORT, () => console.log(`your-app listening on ${PORT}`));
+```
