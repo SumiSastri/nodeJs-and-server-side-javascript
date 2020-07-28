@@ -98,3 +98,30 @@ Response methods, some useful methods are `res.send()` to send the response back
 - [https://jilles.me/getting-the-express-app-js/]
 - [https://expressjs.com/en/guide/routing.html]
   Documentation Express router documentation [https://expressjs.com/en/4x/api.html#router]
+
+## Server quick starter guide and template
+
+1. Set up your backend with dev dependencies and server dependencies
+   [npm install --save-dev nodemon babel-cli babel-preset-env babel-preset-stage-0] && [npm install node express request-promise cors dotenv -S]
+
+2. Set up the presets for babel `.babelrc` [touch .babelrc]
+
+```
+{
+  "presets": ["env", "stage-0"]
+}
+```
+
+3. Go to package.json file and add scripts file
+
+```
+"start": "nodemon server.js --exec babel-node -e js"\
+```
+
+A starter template for the Express server is on `serverTemplate.js`
+
+4. Test the route on the frontend going to localport:portnumber
+
+If app crashes with error - already listening to on the port requested run a pkill node short for (process kill node) as control c only clears the terminal without killing the instance of node.
+
+More debugging on stackoverflow [https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server]
