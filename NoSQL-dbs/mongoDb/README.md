@@ -85,5 +85,3 @@ Stitch is a serverless platform that makes it easier to use MongoDB and your web
 The Charts feature allows you to create visual representations of your data.
 
 Atlas also allows you to configure users with different privileges levels in your database.
-
-## 1. First connect to mongodb
