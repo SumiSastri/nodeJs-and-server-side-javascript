@@ -24,3 +24,6 @@ MongoDb - cloud based
     Replace `<username>` and `<password>` with the password and username you have stored in steps 8 and 9 (Save this string as well - make sure you have taken out the placeholder greater and less than signs around the username and password these are just placeholders)
 13. Should you lose your place on the MongoCloud got back to click connect,
 14. Now go back to your server to connect the local app to the db
+15. First create a dotenv file `touch .env` add `mongodb+srv://<username>:<password>@cluster0.xfd8y.mongodb.net/test` WITHOUT THE PASSWORD AND USER NAME to the file
+16. Make sure that the .env file is ignored in your `.gitignore` files
+17. Now git commit to your git repository and check that the files have been ignored
