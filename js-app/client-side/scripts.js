@@ -1,12 +1,17 @@
+// set up sockets
+const socket = io();
 // sets up jquery
 $(() => {
   $("#send").click(() => {
     // sets input value to what user types - adds the name and message to html tags via the ids
-    var message = { name: $("#name").val(), message: $("#message").val() };
+    let message = { name: $("#name").val(), message: $("#message").val() };
     postMessage(message);
   });
+  // adds call function
   getMessages();
 });
+// set up socket listener
+socket.on("message", addMessage);
 
 function addMessages(message) {
   // lists messages
@@ -20,7 +25,9 @@ function getMessages() {
   $.get("http://localhost:5000/messages", (data) => {
     console.log(data);
     data.forEach(addMessages);
-    // data.map(addMessages);
+    // data.array.forEach((element){
+    // },this)
+    // data.map((element) =>{ addMessages });
   });
 }
 
