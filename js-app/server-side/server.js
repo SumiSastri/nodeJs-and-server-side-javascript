@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 
+const mongoose = require("mongoose");
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,6 +38,23 @@ app.post("/messages", (req, res) => {
 io.on("connection", (socket) => {
   console.log("a user connected");
 });
+const dBurl = process.env.DB_CONNECTION;
+mongoose.connect(
+  dBurl,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  },
+  (error) => {
+    if (!error) {
+      console.log("mongo-db connection working");
+    } else {
+      console.log("check mongo-db connection", error);
+    }
+  }
+);
+mongoose.Promise = global.Promise;
 
 const server = http.listen(port, () =>
   console.log(`js-app server listening at http://localhost:${port}`)
