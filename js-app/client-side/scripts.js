@@ -10,10 +10,11 @@ $(() => {
   // adds call function
   getMessages();
 });
+
 // set up socket listener
 socket.on("message", addMessage);
 
-function addMessages(message) {
+function addMessage(message) {
   // lists messages
   $("#messages").append(
     `<h4> ${message.name} </h4> <p> ${message.message} </p>`
@@ -24,7 +25,7 @@ function getMessages() {
   // gets messages from messages route
   $.get("http://localhost:5000/messages", (data) => {
     console.log(data);
-    data.forEach(addMessages);
+    data.forEach(addMessage);
     // data.array.forEach((element){
     // },this)
     // data.map((element) =>{ addMessages });

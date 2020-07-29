@@ -1,11 +1,15 @@
-## Scaffolding
+## Scaffolding & access
+
+`git clone`
+`npm init -y`
+`nodemon`
+open HTML with live-server extension on VSCode or drag and drop file into browser
 
 **Client side**
-j-query and bootstrap
+j-query, bootstrap, socket.io CDNs/Scripts
 
 **Server-side**
-`npm install express body-parser cors socket.io`
+`npm install express body-parser cors dotenv mongoose socket.io`
 
-- Uses the `express.static()` method to serve the static files`app.use(express.static(__dirname));`
-
-- Uses Postman to check routes:
+- Postman to check routes
+- MongoDB as database
