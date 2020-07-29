@@ -1,7 +1,7 @@
 // sets up jquery
 $(() => {
   $("#send").click(() => {
-    // sets input value to what user types
+    // sets input value to what user types - adds the name and message to html tags via the ids
     var message = { name: $("#name").val(), message: $("#message").val() };
     postMessage(message);
   });
@@ -16,7 +16,9 @@ function addMessages(message) {
 }
 
 function getMessages() {
+  // gets messages from messages route
   $.get("http://localhost:5000/messages", (data) => {
+    console.log(data);
     data.forEach(addMessages);
     // data.map(addMessages);
   });
