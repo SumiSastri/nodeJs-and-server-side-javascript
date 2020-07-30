@@ -109,3 +109,84 @@ The method take the file path as a string in the first argument, the second argu
 Unlike the creating of directories, if you run the terminal command `node writeFiles` it will overwrite the last version of the file you have written.
 
 **Append files**
+You can append files with the fs module, a new file is created in the same directory.
+
+```
+const fs = require("fs");
+const colorData = require("./test-directory/colors.json");
+
+colorData.colorList.forEach((c) => {
+  fs.appendFile(
+    "./test-directory/colors.md",
+    `${c.color}: ${c.hex} \n`,
+    (error) => {
+      if (error) {
+        throw error;
+      }
+    }
+  );
+});
+```
+
+**Rename files**
+The fs module allows you to rename files with the method `fs.renameSync()` the first arg is the file you want to rename and the second arg is the name you want to give the file. The fs module is instantiated and then you can run the method. Once you run the command in terminal, the file name will change. The sync version allows you to rename the files, while the async allows you to rename and move files.
+
+```
+const fs = require("fs");
+
+fs.renameSync(
+  "./test-directory/rename-directory/colors.md",
+  "./test-directory/rename-directory/colors_rgb.md"
+);
+```
+
+**Move files**
+The fs module allows you to both rename and move files with the async method `fs.rename` once you instantiate the fs module.
+
+```
+const fs = require("fs");
+
+fs.rename(
+  "./test-directory/rename-directory/colors_rgb.md",
+  "./test-directory/delete-directory/colors.md",
+  (error) => {
+    if (error) {
+      throw error;
+    }
+  }
+);
+```
+
+**Delete files**
+The fs module allows you to delete files with the method `fs.unlinkSync` once you instantiate the fs module, you might have to delete a file after running a code block. So using the global module `setTimeout` and using the `fs.unlinkSync` as the first arg, with the second arg as the delay, you can delete a file after a code block is run.
+
+```
+const fs = require("fs");
+
+setTimeout(() => {
+  fs.unlinkSync("./test-directory/delete-directory/colors.md");
+}, 4000);
+```
+
+**Delete directories**
+Directories must be empty to be removed, however if they are not empty, as the list of files returned is an array, you can loop over the array and remove each file, then run the method to delete directories. So you would use three methods here `fs.readdirSync` to list the files in the directory, on the array returned run the JavaScript `forEach` method to delete the files using the `fs.unlinkSync` method, now you can delete the directory with the `fs.rmdir` method.
+
+```
+const fs = require("fs");
+
+fs.readdirSync("./test-directory/delete-directory/delete-2").forEach(
+  (fileName) => {
+    fs.unlinkSync(`./test-directory/delete-directory/delete-2/${fileName}`);
+  }
+);
+
+ <!-- throws error as directory not empty = Error: ENOTEMPTY: directory not empty -->
+fs.rmdir("./test-directory/delete-directory/delete-2", (error) => {
+  if (error) {
+    throw error;
+  }
+
+  console.log("SUCCESS: ./test-directory/delete-directory/delete-2 removed");
+});
+
+```

@@ -5,9 +5,9 @@ colorData.colorList.forEach((c) => {
   fs.appendFile(
     "./test-directory/colors.md",
     `${c.color}: ${c.hex} \n`,
-    (err) => {
-      if (err) {
-        throw err;
+    (error) => {
+      if (error) {
+        throw error;
       }
     }
   );
