@@ -109,7 +109,7 @@ The method take the file path as a string in the first argument, the second argu
 Unlike the creating of directories, if you run the terminal command `node writeFiles` it will overwrite the last version of the file you have written.
 
 **Append files**
-You can append files with the fs module, a new file is created in the same directory.
+You can append files with the fs module, If a file does not exist, the `fs.appendFile()` method creates the file if it does not exist, if it does exist, it will add the information at the end of the file.If you run the file several times you will get every single append.
 
 ```
 const fs = require("fs");
