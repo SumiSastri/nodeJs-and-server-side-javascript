@@ -9,9 +9,35 @@
       crossorigin="anonymous"
     />
     <title>WebsocketsApp</title>
+    <style>
+      h1 {font-size: 30px; text-align: center; color:darkkhaki}
+      form { padding: 20px; position: fixed; bottom: 0; width: 100%; padding-right: 50px;}
+      #messages { list-style-type: none; margin: 0; padding: 0; width: 100%;}
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee;} 
+    </style>
   </head>
   <body>
     <h1>WebSocketsApp</h1>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <ul id="messages"></ul>
+      </div>
+      <div class="row">
+          <div class="col-lg-6">
+            <form action="">
+              <div class="input-group">
+                  <input id="m" autocomplete="off" type="text" class="form-control" placeholder="Message..." aria-label="Message...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="submit">Send</button>
+                  </span>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

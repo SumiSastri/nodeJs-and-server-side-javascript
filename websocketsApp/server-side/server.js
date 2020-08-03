@@ -14,7 +14,6 @@ app.use(
     extended: true,
   })
 );
-
 // app.get("/", (req, res) => {
 //   res.send("your app is working");
 // });
