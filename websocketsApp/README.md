@@ -1,12 +1,9 @@
 ## Scaffolding
 
-`npm -init -y`
-Project dependencies
-`npm install express nodemon socket.io cors body-parser -S`
-Dev dependencies
-`npm install --save-dev nodemon babel-cli babel-preset-env babel-preset-stage-0`
-
-Presets for babel `.babelrc` [touch .babelrc] in root folder (dot files like dot babelrc/ dotenv are hidden)
+- Initialising cloned files `npm -init -y`
+- Project dependencies `npm install express nodemon socket.io cors body-parser -S`
+- Dev dependencies `npm install --save-dev nodemon babel-cli babel-preset-env babel-preset-stage-0`
+- Presets for babel `.babelrc` [touch .babelrc] in root folder (dot files like dot babelrc/ dotenv are hidden)
 
 ```
 {
@@ -14,7 +11,7 @@ Presets for babel `.babelrc` [touch .babelrc] in root folder (dot files like dot
 }
 ```
 
-Scripts in package.json - (index.js if that is what your Express server is called - make sure you have the right file path to your Express server)
+- Scripts in package.json - (index.js if that is what your Express server is called - make sure you have the right file path to your Express server)
 
 ```
 
@@ -26,7 +23,7 @@ Scripts in package.json - (index.js if that is what your Express server is calle
 
 ```
 
-Run nodemon and test your server is up and running.
+- Test your server is up and running - `npm run start`
 
 ## Folder structure
 
@@ -50,6 +47,7 @@ app.get("/", (req, res) => {
 Go to localhost:5000 and check if the front-end is still connected.
 
 4. Connect sockets in the Express server. Follow steps 1-5 in the websockets folder [websockets/README.md]
+
 5. In this app we will be using j-query, bootstrap, ajax CDN's - add these scripts to your `index.html` file. The link styles for bootstrap should also be used in the css links.
 
 Code base:
@@ -105,3 +103,5 @@ socket.on("disconnect", () => {
 ```
 
 Test this works with 2 instances of the app - open the app in another tab and write a message for 2 users and check that this works in the terminal.
+
+3. Namespaces
