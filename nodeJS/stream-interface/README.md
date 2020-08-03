@@ -92,6 +92,4 @@ readStream.on("data", (data) => {
 });
 ```
 
-Readable have several methods that help you compose them to be used with writable streams in conjunction with the process module.
-
-For instance, I can take the process.stdin, which is a readable stream and pipe it to our writeStream and it sends it to the writeStream which will write it to the myFile.txt file. So, let's go ahead and run this. I'll type Hello my name is Alex and then we can go ahead and take a look at myFile.txt within our assets folder and we can see that that data's getting written directly to the file. So, this works with all sorts of streams. If I wanted to take the readStream, which is our lorem ipsum readStream and then pipe it to the writeStream, which is a reference to the myFile.txt, we can do that too. So, I'll come out here to the TERMINAL and run this one last time. Oops, and we notice that we are calling readStream.stdin. We actually, that's the readStream, so we can delete the stdin and try it again. Let me save this file and come back out here. Clear the TERIMINAL and run it. So, nothing happens except we piped from the lorem ipsum mark down document to the writeStream which is my text and we essentially copied the file. The writeable stream is the counterpart to the readable stream. And, just like readable streams, writeable streams are everywhere in node js.
+Readable streams can be used in conjunction with the process module `process.stdin.pipe(writeStream);` or replaced with the readStream method `readStream.pipe(writeStream);`
