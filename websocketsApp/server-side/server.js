@@ -14,9 +14,7 @@ app.use(
     extended: true,
   })
 );
-// app.get("/", (req, res) => {
-//   res.send("your app is working");
-// });
+
 app.get("/", (req, res) => {
   res.sendFile(
     "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/index.html"
@@ -31,6 +29,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
+    // using the disconnect event
     console.log("socket-off: user disconnected");
     io.emit("message", "io-server: user disconnected");
   });
