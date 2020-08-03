@@ -32,3 +32,8 @@ Run nodemon and test your server is up and running.
 
 Frontend/ client-side, static files in public folder.
 Backend/ server-side files in server-side folder.
+
+## Steps
+
+1. Set up Express server with template from `vanillaServer.js` file in folder [node-and-dbs/servers/express/demos/serverTemplate.js]
+2. Add sockets
