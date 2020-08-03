@@ -12,8 +12,6 @@ const mongoose = require("mongoose");
 
 // const messages = require("../server-side/db/controllers/messageController");
 
-app.use(express.static(__dirname));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
@@ -22,6 +20,12 @@ app.use(express.json());
 const Message = mongoose.model("Message", {
   name: String,
   message: String,
+});
+
+// app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/client-side/index.html");
 });
 
 app.get("/messages", (req, res) => {
@@ -40,6 +44,7 @@ app.post("/messages", (req, res) => {
     res.sendStatus(200);
   });
 });
+
 // app.use("/messages", messageController);
 io.on("connection", (socket) => {
   console.log("a user connected");
