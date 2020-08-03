@@ -52,7 +52,7 @@ Go to localhost:5000 and check if the front-end is still connected.
 
 Code base:
 
-1. In the j-query, write the userMessage codeblock, and append it to the `<li>` tag
+1. In the j-query, write the userMessage codeblock for the `element.submit()` event. The socket events `socket.emit()` waits for the user to type their message and registeres it to the value of the input using the `element.value()` method
 
 ```
 $("form").submit(() => {
@@ -62,7 +62,7 @@ $("form").submit(() => {
 });
 ```
 
-Use the `sockets.on()` method used and message event in the j-query
+Use the `sockets.on()` method used and append the message to an <li> tag in the j-query
 
 ```
 socket.on("message", (usrMsg) => {
@@ -70,7 +70,7 @@ socket.on("message", (usrMsg) => {
       });
 ```
 
-Mirror this in the `server.js` file.
+Mirror this in the `server.js` file using the `io.on()` method - io methods representing the server socket. The socket method represents the user socket.
 
 ```
 io.on("connection", (socket) => {
@@ -104,4 +104,30 @@ socket.on("disconnect", () => {
 
 Test this works with 2 instances of the app - open the app in another tab and write a message for 2 users and check that this works in the terminal.
 
-3. Namespaces
+3. Create namespaces
+   Namespaces are internal routes to separate rooms/ conversations using the `io.of()` method, which takes the argument of the internal route. If you wanted a namespace for teachers and students you would assign them to variables and instantiate them in the `server.js` file
+
+const teachers = io.of('/teachers');
+const students = io.of('/students');
+const parents = io.of('/parents');
+
+As you have changed the io instantiation the code needs to change and io replaced by teachers/ students/ parents etc.
+
+```
+teachers.on("connection", (socket) => {
+  console.log("user connected");
+  socket.on("message", (usrMsg) => {
+    console.log(`user message: ${usrMsg}`);
+    teachers.emit("message", usrMsg);
+  });
+
+  socket.on("disconnect", () => {
+    // using the disconnect event
+    console.log("socket-off: user disconnected");
+    teachers.emit("message", "io-server: user disconnected");
+  });
+});
+```
+
+In the `index.html` file the assignment of io to a socket is modified to take as an argument the connection to the internal route of teachers.
+`const socket = io(/teachers);`
