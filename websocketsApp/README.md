@@ -51,3 +51,57 @@ Go to localhost:5000 and check if the front-end is still connected.
 
 4. Connect sockets in the Express server. Follow steps 1-5 in the websockets folder [websockets/README.md]
 5. In this app we will be using j-query, bootstrap, ajax CDN's - add these scripts to your `index.html` file. The link styles for bootstrap should also be used in the css links.
+
+Code base:
+
+1. In the j-query, write the userMessage codeblock, and append it to the `<li>` tag
+
+```
+$("form").submit(() => {
+  socket.emit("userMessage", $("#msgInputId").val());
+  $("#msgInputId").val("");
+  return false;
+});
+```
+
+Use the `sockets.on()` method used and message event in the j-query
+
+```
+socket.on("message", (usrMsg) => {
+        $("#messages").append($("<li>").text(usrMsg));
+      });
+```
+
+Mirror this in the `server.js` file.
+
+```
+io.on("connection", (socket) => {
+  console.log("user connected");
+  socket.on("message", (usrMsg) => {
+    console.log(`user message: ${usrMsg}`);
+    io.emit("message", usrMsg);
+  });
+```
+
+2. Connect and disconnect users
+
+In the j-query script, use the connect event to track when the user is connected to the server
+
+```
+socket.on('connect', () => {
+        // uses the connect event
+        socket.emit('message', 'socket-on: user connected');
+      })
+```
+
+on the server-side remove the test code and use the disconnect event
+
+```
+socket.on("disconnect", () => {
+   // uses the disconnect event
+   console.log("socket-off: user disconnected");
+   io.emit("message", "io-server: user disconnected");
+ });
+```
+
+Test this works with 2 instances of the app - open the app in another tab and write a message for 2 users and check that this works in the terminal.

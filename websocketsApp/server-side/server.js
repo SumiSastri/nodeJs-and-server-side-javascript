@@ -25,12 +25,14 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("user connected");
-  socket.emit("message", {
-    socketTestMessage: "testing socket - hello 1,2,3 testing, testing...",
+  socket.on("message", (usrMsg) => {
+    console.log(`user message: ${usrMsg}`);
+    io.emit("message", usrMsg);
   });
-  socket.on("another event", (data) => {
-    console.log(data);
+
+  socket.on("disconnect", () => {
+    console.log("socket-off: user disconnected");
+    io.emit("message", "io-server: user disconnected");
   });
 });
-
 server.listen(PORT, () => console.log(`your-app listening on ${PORT}`));

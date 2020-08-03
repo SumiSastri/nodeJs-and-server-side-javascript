@@ -1,7 +1,10 @@
-const socket = io.connect("http://localhost:5000");
-socket.on("message", (data) => {
-  console.log(data);
-  socket.emit("another event", {
-    userReply: "The socket test in progress",
-  });
+// const socket = io.connect("http://localhost:5000");
+const socket = io();
+$("form").submit(() => {
+  socket.emit("userMessage", $("#msgInputId").val());
+  $("#msgInputId").val("");
+  return false;
+});
+socket.on("userMessage", (usrMsg) => {
+  $("#messages").append($("<li>").text(usrMsg));
 });
