@@ -159,6 +159,50 @@ or if your start script is with node commands then copy the start scripts after 
 "debug": "DEBUG=express:\* node ./server-side/server.js"
 },
 
+## Proxy servers
+
+Documentation [https://expressjs.com/en/guide/behind-proxies.html]
+
+Proxy is another server that pushes endpoint calls or traffic to your application. There are multiple use cases for proxies. However there are security issues to consider and should not be used without considering these security issues.
+
+Some of the methods I have used are by installing the run-all package [npm install run-all]
+
+- Unless I want to deploy the app - at which stage the package JSOn files and an [npm-run-build] are required I do not set up a proxy server or static files, I merely install dependencies.
+
+Just before deploy I will run build and modify the servers to add a proxy server in package JSOn and express.
+
+```
+[npm run build]
+Modify scripts
+
+    "scripts": {
+    "start": "npm-run-all -s build start-backend",
+    "start-frontend": "react-scripts start",
+    "start-backend": "nodemon src/back-end/server.js",
+    "start-dev": "npm-run-all -p start-frontend start-backend",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+
+},
+
+Add proxy just above es lint and below scripts
+
+"proxy": "http://localhost:3001",
+"eslintConfig": {
+"extends": "react-app"
+},
+```
+
+## Security and servers
+
+- keep dependencies up-to-date and secure
+- use official list promoted by the Express team
+- for sensitive data use TLS, which is the next progression of SSL. You can get a free TLS certificate through services like Let's Encrypt and, depending on where you host your services, they will have documentation on how to install your certificate.
+- use the library Helmet, it adds a collection of middleware that secures further HTTP headers.
+- use cookies securely
+- review node security documentation
+
 ## RESOURCES
 
 - [https://expressjs.com/en/4x/api.html#router]
