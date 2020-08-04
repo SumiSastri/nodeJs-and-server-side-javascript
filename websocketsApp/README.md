@@ -224,12 +224,35 @@ socket.on("message", (data) => {
 
 5. Add more rooms
 
-In `server.js`
+In `HTML`
 
-- Each room needs it own html boiler plate
-- An anchor-tag for routing to each of these pages
-- A name space
-  In `Jquery scripts`
-- In the scripts section of the HTML you need to assign the variable to the name of the room
-- In the message input you need to pass room as a variable as well as the message
-- In sockets you need to use the "join" listener and on connection add the room
+- Each room needs it own html boiler plate with JQuery
+- Only one `index.html` page is required to route the rest of the pages
+
+```
+  <ul class="list-group col">
+          <a href="/parents" class="list-group-item list-group-item-action"
+            >Parents</a
+          >
+          <a href="/teachers" class="list-group-item">Teachers</a>
+          <a href="/students" class="list-group-item">Students</a>
+        </ul>
+```
+
+In `Jquery scripts`
+
+- you need a new namespace for each room
+
+In Express `server.js`
+
+You need to get the new route
+
+```
+app.get("/parents", (req, res) => {
+  res.sendFile(
+    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/parents.html"
+  );
+});
+```
+
+Test the app is working go to the new route`http://localhost:5000/parents` and check it out on 2 servers, the code should still work.

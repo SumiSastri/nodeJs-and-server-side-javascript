@@ -33,7 +33,7 @@
         padding: 5px 10px;
       }
       #messages li:nth-child(odd) {
-        background: lightcyan;
+        background: lightsteelblue;
       }
     </style>
   </head>
@@ -80,20 +80,22 @@
     ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io("/parents");
+      const room = "parents";
+      const socket = io("/headTeacher");
+
       $("form").submit(() => {
-        socket.emit("message", $("#msgInput").val());
+        let schoolMessages = $("#msgInput").val();
+        socket.emit("message", { schoolMessages, room });
         $("#msgInput").val("");
         return false;
       });
 
       socket.on("connect", () => {
-        // using the connect event
-        socket.emit("message", "socket-on: user connected");
+        socket.emit("join", { room: room });
       });
 
-      socket.on("message", (usrMsg) => {
-        $("#messages").append($("<li>").text(usrMsg));
+      socket.on("message", (schoolMessages) => {
+        $("#messages").append($("<li>").text(schoolMessages));
       });
     </script>
   </body>

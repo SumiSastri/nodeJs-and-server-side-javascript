@@ -21,6 +21,23 @@ app.get("/", (req, res) => {
   );
 });
 
+app.get("/parents", (req, res) => {
+  res.sendFile(
+    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/parents.html"
+  );
+});
+
+app.get("/students", (req, res) => {
+  res.sendFile(
+    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/students.html"
+  );
+});
+
+app.get("/teachers", (req, res) => {
+  res.sendFile(
+    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/teachers.html"
+  );
+});
 // Head Teacher name space - rooms will be for teachers, parents and pupils
 const headTeacher = io.of("/headTeacher");
 
