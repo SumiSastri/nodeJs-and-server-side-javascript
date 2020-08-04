@@ -270,3 +270,21 @@ app.get("/parents", (req, res) => {
 ```
 
 Test the app is working go to the new route`http://localhost:5000/parents` and check it out on 2 servers, the code should still work. Check each of the rooms, the messages should only appear in the room assigned.
+
+6. Add debugging tools for Express and Sockets
+   In terminal you can run the debuggers manually
+
+`DEBUG=express:*` and `DEBUG=* npm run start`
+
+or update package-json scripts - the DEBUG=\* needs to be right at the beginning of the command.
+
+```
+  "scripts": {
+    "start": "nodemon ./server.js --exec babel-node -e js",
+    "debug": "DEBUG=express:* nodemon ./server.js --exec babel-node -e js",
+    "test": "DEBUG=* nodemon ./index.js --exec babel-node -e js"
+  },
+```
+
+RESOURCES:
+Emit cheatsheet[https://socket.io/docs/emit-cheatsheet/]
