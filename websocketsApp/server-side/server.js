@@ -21,17 +21,21 @@ app.get("/", (req, res) => {
   );
 });
 
-io.on("connection", (socket) => {
+// Head Teacher name space - rooms will be for teachers, parents and pupils
+const headTeacher = io.of("/headTeacher");
+
+headTeacher.on("connection", (socket) => {
   console.log("user connected");
   socket.on("message", (usrMsg) => {
     console.log(`user message: ${usrMsg}`);
-    io.emit("message", usrMsg);
+    headTeacher.emit("message", usrMsg);
   });
 
   socket.on("disconnect", () => {
     // using the disconnect event
     console.log("socket-off: user disconnected");
-    io.emit("message", "io-server: user disconnected");
+    headTeacher.emit("message", "io-server: user disconnected");
   });
 });
+
 server.listen(PORT, () => console.log(`your-app listening on ${PORT}`));

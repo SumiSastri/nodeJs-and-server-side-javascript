@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 const mongoose = require("mongoose");
 // const path = require('path');
 
@@ -22,11 +22,11 @@ const Message = mongoose.model("Message", {
   message: String,
 });
 
-// app.use(express.static(__dirname));
+app.use(express.static(__dirname));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/client-side/index.html");
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/client-side/index.html");
+// });
 
 app.get("/messages", (req, res) => {
   Message.find({}, (err, messages) => {
@@ -68,6 +68,4 @@ mongoose.connect(
 );
 mongoose.Promise = global.Promise;
 
-const server = http.listen(PORT, () =>
-  console.log(`your-app listening on ${PORT}`)
-);
+server.listen(PORT, () => console.log(`your-app listening on ${PORT}`));

@@ -80,7 +80,7 @@
     ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io("/headTeacher");
+      const socket = io();
       $("form").submit(() => {
         socket.emit("message", $("#msgInput").val());
         $("#msgInput").val("");
