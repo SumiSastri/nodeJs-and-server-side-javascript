@@ -288,3 +288,5 @@ or update package-json scripts - the DEBUG=\* needs to be right at the beginning
 
 RESOURCES:
 Emit cheatsheet[https://socket.io/docs/emit-cheatsheet/]
+Server API documentation[https://socket.io/docs/server-api/]
+Client API documentation [https://socket.io/docs/client-api/]
