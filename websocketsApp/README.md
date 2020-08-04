@@ -17,8 +17,8 @@
 
  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server-side/server.js --exec babel-node -e js",
-    "debug": "DEBUG=express:* nodemon ./server-side/server.js --exec babel-node -e js"
+    "start": "nodemon ./server.js --exec babel-node -e js",
+    "debug": "DEBUG=express:* nodemon ./server.js --exec babel-node -e js"
   },
 
 ```
@@ -29,6 +29,7 @@
 
 Frontend/ client-side, static files in public folder.
 Backend/ server-side files in server-side folder.
+Refactored to move the `server.js`into root file
 
 ## Boiler plate steps for server and client
 
@@ -49,6 +50,14 @@ app.get("/", (req, res) => {
   res.sendFile(
     "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/index.html"
   );
+});
+```
+
+Becuase of this I refactored - moved the server into the route file and then the path module works
+
+```
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
 });
 ```
 
@@ -228,6 +237,7 @@ In `HTML`
 
 - Each room needs it own html boiler plate with JQuery
 - Only one `index.html` page is required to route the rest of the pages
+- The JQuery can be removed from this file as it is only needed in each chat room.
 
 ```
   <ul class="list-group col">
@@ -241,13 +251,21 @@ In `HTML`
 
 In `Jquery scripts` you need a new namespace for each room
 
-In Express `server.js` You need to get the new route
+In Express `server.js` You need to get the new route with the new absolute path.
 
 ```
 app.get("/parents", (req, res) => {
   res.sendFile(
     "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/parents.html"
   );
+});
+```
+
+Once again, I refactored and moved `server.js` into the root file to use the path module in node
+
+```
+app.get("/parents", (req, res) => {
+  res.sendFile(__dirname + "/public/parents.html");
 });
 ```
 

@@ -16,28 +16,21 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.sendFile(
-    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/index.html"
-  );
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.get("/parents", (req, res) => {
-  res.sendFile(
-    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/parents.html"
-  );
+  res.sendFile(__dirname + "/public/parents.html");
 });
 
 app.get("/students", (req, res) => {
-  res.sendFile(
-    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/students.html"
-  );
+  res.sendFile(__dirname + "/public/students.html");
 });
 
 app.get("/teachers", (req, res) => {
-  res.sendFile(
-    "/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/public/teachers.html"
-  );
+  res.sendFile(__dirname + "/public/teachers.html");
 });
+
 // Head Teacher name space - rooms will be for teachers, parents and pupils
 const headTeacher = io.of("/headTeacher");
 
