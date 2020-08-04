@@ -239,13 +239,9 @@ In `HTML`
         </ul>
 ```
 
-In `Jquery scripts`
+In `Jquery scripts` you need a new namespace for each room
 
-- you need a new namespace for each room
-
-In Express `server.js`
-
-You need to get the new route
+In Express `server.js` You need to get the new route
 
 ```
 app.get("/parents", (req, res) => {
@@ -255,4 +251,4 @@ app.get("/parents", (req, res) => {
 });
 ```
 
-Test the app is working go to the new route`http://localhost:5000/parents` and check it out on 2 servers, the code should still work.
+Test the app is working go to the new route`http://localhost:5000/parents` and check it out on 2 servers, the code should still work. Check each of the rooms, the messages should only appear in the room assigned.
