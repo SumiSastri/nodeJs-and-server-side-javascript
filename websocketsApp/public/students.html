@@ -16,6 +16,12 @@
         text-align: center;
         color: darkkhaki;
       }
+      p {
+        font-size: 18px;
+        text-align: center;
+        color: darkkhaki;
+        background-color: lavender;
+      }
       form {
         padding: 20px;
         position: fixed;
@@ -30,16 +36,26 @@
         width: 100%;
       }
       #messages li {
-        padding: 5px 10px;
+        font-size: 16px;
+        text-align-last: right;
+        margin: 5px;
+        padding:5px;
+        background-color: khaki;
       }
       #messages li:nth-child(odd) {
+        font-size: 16px;
+        text-align-last: right;
+        margin: 5px;
+        padding:5px;
         background: lavender;
       }
     </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <h1>WebSocketsApp</h1>
+   ' <div class="container-fluid">    
+      <h1 class="display-3">School Messages</h1>
+       <p class="lead">Welcome to the students' room</p>
+     </div> 
       <div class="row">
         <ul id="messages"></ul>
       </div>

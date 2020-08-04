@@ -16,6 +16,12 @@
         text-align: center;
         color: darkkhaki;
       }
+      p {
+        font-size: 18px;
+        text-align: center;
+        color: darkkhaki;
+        background-color:lightcyan
+      }   
       form {
         padding: 20px;
         position: fixed;
@@ -27,19 +33,29 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 100%;
+        width: 90%;
       }
       #messages li {
-        padding: 5px 10px;
+        font-size: 16px;
+        text-align-last: right;
+        margin: 5px;
+        padding:5px;
+        background-color: khaki;
       }
       #messages li:nth-child(odd) {
-        background: lightsteelblue;
+        font-size: 16px;
+        text-align-last: right;
+        margin: 5px;
+        padding:5px;
+        background: lightcyan;
       }
     </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <h1>WebSocketsApp</h1>
+    <div class="container-fluid">    
+       <h1 class="display-3">School Messages</h1>
+        <p class="lead">Welcome to the parents' room</p>
+      </div> 
       <div class="row">
         <ul id="messages"></ul>
       </div>
