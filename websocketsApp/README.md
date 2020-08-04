@@ -42,7 +42,7 @@ Backend/ server-side files in server-side folder.
 - open with the LiveServer VSCode extension, ensure the front-end is working.
 - add the style sheet link to Bootstrap (or whatever CSS library you are using)
 
-3. Connect the html boiler plate file to the server, with the Express the `app.get()` method change the routing to the static files. The call back takes the absolute path name if your server is not in the root files.
+3. Connect the html boiler plate file to the server, with Express `server.js` the `app.get()` method change the routing to the static files. The call back takes the absolute path name if your server is not in the root files.
 
 ```
 app.get("/", (req, res) => {
@@ -54,13 +54,20 @@ app.get("/", (req, res) => {
 
 - go to localhost:5000 and check if the front-end is still connected.
 
-4. Connect sockets in the Express server. Follow steps 1-5 in the websockets folder [websockets/README.md]
+4. Connect sockets in Express `server.js`. Follow steps 1-5 in the websockets folder [websockets/README.md]
 
 5. In this app we will be using j-query, bootstrap, ajax CDN's - add these scripts to your `index.html` file.
 
+**A note on data flows**
+
+1. Data from the static files in the HTML files are connected to the Express server.js via the node path module.
+2. The JQuery is connected via the scripts files to the HTML and therefore flows into the Express server via the HTML
+3. Express server data flows are from vanilla JavaScript transpiled by babel and node to JQuery once the HTML files are connected to the backend via the server
+4. The socket-io library is intantiated both in the JQuery files via a script file that connects the library to the socket & io methods and event listeners as well as in the server. The flow of information therefore is via the Express server as it connects to the front-end JavaScript files in the HTML static connection of the two files.
+
 Code base:
 
-1. In the j-query, write the userMessage codeblock for the `element.submit()` event. The socket events `socket.emit()` waits for the user to type their message and registers it to the value of the input using the `element.value()` method
+1. In `Jquery scripts`, write the userMessage codeblock for the `element.submit()` event. The socket events `socket.emit()` waits for the user to type their message and registers it to the value of the input using the `element.value()` method
 
 ```
 $("form").submit(() => {
@@ -78,7 +85,7 @@ socket.on("message", (usrMsg) => {
       });
 ```
 
-Mirror this in the `server.js` file using the `io.on()` method - io methods representing the server socket. The socket method represents the user socket.
+Mirror this in Express `server.js` file using the `io.on()` method from the sockets library - io methods representing the server socket. The socket method represents the user socket.
 
 ```
 io.on("connection", (socket) => {
@@ -100,7 +107,7 @@ socket.on('connect', () => {
       })
 ```
 
-on the server-side remove the test code and use the disconnect event
+In Express `server.js` remove the test code and use the disconnect event
 
 ```
 socket.on("disconnect", () => {
@@ -110,12 +117,12 @@ socket.on("disconnect", () => {
  });
 ```
 
-Test this works with 2 instances of the app - open the app in another tab and write a message for 2 users and check that this works in the terminal.
+Test this works with 2 instances of the app - 2 localhost:5000 in 2 chrome browser tabs and write a message for 2 users and check that this works in the terminal.
 
 3. Create namespaces
    Namespaces are internal routes to separate rooms/ conversations using the `io.of()` method, which takes the argument of the internal route - it means that this server is dedicated to the internal user - the Head Teacher in this app.
 
-To set the name space up, you need to add the namespace and assign it to a variable.
+To set the name space up,in Express `server.js` you need to add the namespace and assign it to a variable.
 
 `const headTeacher = io.of("/headTeacher");`
 
@@ -155,15 +162,74 @@ io.on("connection", (socket) => {
 });
 ```
 
-In the `index.html` file the assignment of io to a socket
-`const socket = io()` is also reassigned to the Head via an internal route to connect the backend and front end socket instances `const socket = io('/headTeacher')`
+In `Jquery scripts` the assignment of io to a socket `const socket = io()` is also reassigned to the Head via an internal route to connect the backend and front end socket instances `const socket = io('/headTeacher')`
 
-4. Create rooms
+4. Create the first room
+   In `Jquery scripts`
+
+   - assign the room to a variable `const room = 'parents'`
+   - as we are adding rooms extract the message and assign it to a variable, pass both these variables to the `socket.emit("message",{})`method, as the second arg and as an object.
+
+   ```
+   const socket = io("/headTeacher");
+      $("form").submit(() => {
+        let schoolMessages = $("#msgInput").val();
+        socket.emit("message", { schoolMessages, room });
+        $("#msgInput").val("");
+        return false;
+      });
+   ```
+
+Use the socket event join, to pass the argument of the room, to show the user is in the room.
+
+```
+socket.on("connect", () => {
+        socket.emit("join", { room: room });
+      });
+```
+
+As we have changed the messages to school messages we also need to change the params in the append method
+
+```
+socket.on("message", (schoolMessages) => {
+        $("#messages").append($("<li>").text(schoolMessages));
+      });
+```
+
+In Express `server.js` we are now going to use event "join" from the sockets library. The second argument is the message data that is coming from the room. Once the namespace of the server that this room has been assigned to (the Head) is connected or is in the room, we use the socket method `.in(data.room)` passing the message data from that room. Then we chain on the emit method and emit the message data from the room.
+
+```
+headTeacher.on("connection", (socket) => {
+  socket.on("join", (data) => {
+    socket.join(data.room);
+    headTeacher.in(data.room).emit(`Message: from room ${data.room}`);
+  });
+```
+
+All the connection and disconnection code also needs to be changed as now we need to access the schoolMessage from the data object.
+
+```
+socket.on("message", (data) => {
+    console.log(`message: ${data.schoolMessages}`);
+    headTeacher.in(data.room).emit("message", data.schoolMessages);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+
+    headTeacher.emit("message", "user disconnected");
+  });
+});
+```
+
+5. Add more rooms
+
+In `server.js`
 
 - Each room needs it own html boiler plate
 - An anchor-tag for routing to each of these pages
 - A name space
-
+  In `Jquery scripts`
 - In the scripts section of the HTML you need to assign the variable to the name of the room
 - In the message input you need to pass room as a variable as well as the message
 - In sockets you need to use the "join" listener and on connection add the room

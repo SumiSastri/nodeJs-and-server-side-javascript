@@ -25,16 +25,22 @@ app.get("/", (req, res) => {
 const headTeacher = io.of("/headTeacher");
 
 headTeacher.on("connection", (socket) => {
-  console.log("user connected");
-  socket.on("message", (usrMsg) => {
-    console.log(`user message: ${usrMsg}`);
-    headTeacher.emit("message", usrMsg);
+  socket.on("join", (data) => {
+    socket.join(data.room);
+    headTeacher
+      .in(data.room)
+      .emit("message", `HeadTeacher-in: New user joined ${data.room} room!`);
+  });
+
+  socket.on("message", (data) => {
+    console.log(`message: ${data.schoolMessages}`);
+    headTeacher.in(data.room).emit("message", data.schoolMessages);
   });
 
   socket.on("disconnect", () => {
-    // using the disconnect event
-    console.log("socket-off: user disconnected");
-    headTeacher.emit("message", "io-server: user disconnected");
+    console.log("user disconnected");
+
+    headTeacher.emit("message", "user disconnected");
   });
 });
 
