@@ -1,26 +1,29 @@
-const socket = io.connect("http://localhost:5000");
 $(() => {
   $("#send").click(() => {
-    var message = { name: $("#name").val(), message: $("#message").val() };
-    postMessage(message);
+    const messageData = {
+      name: $("#name").val(),
+      message: $("#message").val(),
+    };
+    postMessage(messageData);
   });
   getMessages();
 });
 
-socket.on("message", addMessage);
-
-function addMessage(message) {
+const addMessages = (messageData) => {
   $("#messages").append(
-    `<h4> ${message.name} </h4> <p> ${message.message} </p>`
+    `<h4> ${messageData.name} </h4> <p> ${messageData.message} </p>`
   );
-}
+};
 
-function getMessages() {
+const getMessages = () => {
   $.get("http://localhost:5000/messages", (data) => {
-    data.forEach(addMessage);
+    data.forEach(addMessages);
   });
-}
+};
 
-function postMessage(message) {
-  $.post("http://localhost:5000/messages", message);
-}
+const postMessage = (messageData) => {
+  $.post("http://localhost:5000/messages", messageData);
+};
+$("#send").click(() => {
+  getMessages();
+});
