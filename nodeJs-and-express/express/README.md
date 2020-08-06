@@ -6,6 +6,12 @@ It is used with the Node module system and follows the CommonJS syntax. It also 
 
 To use the ExpressJS framework, it needs to be installed into a project with npm or nvm. The folder intantiated with node and then the package installed.
 
+Express.js forms part of the middle-ware between the backend server and the front-end ui-ux.
+
+Just as React is a library that manages browser-based data in state/ ui-ux changes and DOM manipulation, Express is a frame-work that manages requests from the servers' databases to the front-end.
+
+Express comes with it's own syntax and methods. It is a protocol and has a more rigid structure but is lightweight and very quick to set up.
+
 ## Express Command Line Interface(CLI)
 
 The Express Application Generator is a CLI. `npm install express generator -g` for the project

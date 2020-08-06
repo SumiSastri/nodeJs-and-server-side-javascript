@@ -1,6 +1,10 @@
 ## Why sockets?
 
-- Node send requests from the client or browser to Node, but not in the reverse. So when we fill in the message form we get in the nodeJS-App
+- To access the excercise files `npm init -y`
+
+- This section on the sockets library is brief and covers how sockets have been used as both the projects in this repo use sockets.
+
+- Node send requests from the client or browser to Node, but not in the reverse. So when we send a message from the server to the backend the console will log the result.
 
 ```
 { name: 'Josie', message: 'Bonjour' }
@@ -8,9 +12,11 @@
 { name: 'Josie', message: 'Bonjour' }
 ```
 
-- Node can not notify the browser/ user that the message has been updated
+- Node can not notify the browser/ user that the message has been updated in a live-chat app
 - The only way to achieve this behavior with HTTP requests is to do something called polling. With polling, every few seconds we send an HTTP request to check for updates
 - One WebSocket library is Socket.IO that works for both the browser and for Node. The advantage of this library is that if a browser is older and does not support WebSockets, it will default back to polling and it has that functionality built in so it will always work, even if it's not as efficient with older browsers.
+
+How to get sockets running in a project.
 
 1. `npm install -s socket.io`
 
