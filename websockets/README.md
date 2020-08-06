@@ -87,13 +87,7 @@ In the HTML file, after the body tags, add 2 script files. The second script tag
 
 In the front end console and the back end console you will see the responses.
 
-**NOTE separation of concerns does not work, if you have a separate HTML and JavaScript file**
-
-- This method needs some research as it is not working.
-  If you place the `<script src="/socket.io/socket.io.js"></script> <script src="scripts.js" charset="utf-8"></script>` in the HTML body, there is no connection and you get a 404 error
-- debug option from stack overflow
-  `<script src="http://127.0.0.1:5500/socket.io/socket.io.js"></script>`
-- In the JavaScript files if you add the instantion of the socket library and import it as above into your HTML it does not work
+**NOTE separation of concerns does not work, if you have a separate HTML and JavaScript files**
 
 ```
 const socket = io.connect("http://localhost:5000");
@@ -103,9 +97,17 @@ socket.on("message", (data) => {
     userReply: "The socket test in progress",
   });
 });
-
 ```
 
-- debug options also did not work - connect to IP`const socket = io.connect("http://127.0.0.1:5500/")` or use the http node module `const socket = io(http)`
+6. Connecting front-end sockets to the backend
 
-6. Adding style-sheets and libraries
+You need to add socket methods to the front end to listen to user inputs
+
+`socket.on()` when the socket is open it is listening for messages
+`socket.emit()` once it has received the message it can emit the message
+`socket.join()` if several sockets are open you can join the open sockets
+
+Documentation:
+Emit cheatsheet[https://socket.io/docs/emit-cheatsheet/]
+Server API documentation[https://socket.io/docs/server-api/]
+Client API documentation [https://socket.io/docs/client-api/]

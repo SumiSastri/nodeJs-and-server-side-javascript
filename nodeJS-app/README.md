@@ -101,4 +101,4 @@ $("#send").click(() => {
 
 STEP 3: Add sockets library for polling the responses back in real-time.
 
-The challenge here is that this project does not have the correct transpilers so we need to add them here.
+Follow the steps 1-5 in the sockets section to connect the sockets front-end and backend
