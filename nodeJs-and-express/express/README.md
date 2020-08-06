@@ -85,9 +85,9 @@ If you are using data from mongoDB you will need to add another dependency. [npm
 
 Express server can directly call these routes with these methods.
 
-`router.get()` - gets resources from the FE or a dB on a request
-`router.post()` - publishes the data either on the FE or to the dB
-`router.put()` - updates the data either on the FE or the dB
+`router.get()` - gets resources from an external API (url) or a dB on a request
+`router.post()` - post data (the resource) from the local host URL (by sending a request) to a database
+`router.put()` - updating the data (resource) on the local host URL with the data (resource, payload) of the data from the database
 `router.delete()` - deletes data either on the FE or dB
 
 ## REST routes with Express

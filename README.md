@@ -1,39 +1,41 @@
-# What is Node & server-side JavaScript?
+# Table of Contents
 
-Node is an opensource, cross-platform, runtime environment for server-side and networking applications.
+1. [Project goals](#Project-goals)
+2. [Folder structure](#Folder-structure)
+3. [Project access](#Project-access)
 
-Node is not a language. It is an opensource, cross-platform runtime environment created by Ryan Dahl in 2009 that uses JavaScript as a language.
+   [RESOURCES](#Resources)
 
-Dahl took the code on the browser (Chrome's V8 engine) and repackaged it to make it work server-side. It is cross-platform and works on Chakra and SpiderMonkey engines as well.
+#### Project goals
 
-While Node it is based on JavaScript, it is not a language, it adopts JavaScript's non-blocking, single-threaded asynchronous features in the execution of the event-loop in runtime.
-[https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/]
+This project focuses on server-side JavaScript with Node.js.
 
-While blocking methods are possible, as Node is cross-platform and language agnostic, non-JS languages like C++ are blocking in nature. The documentation recommends keeping the two methods - synchronous and asynchronous function calls - separate in a code base.
-[https://nodejs.org/en/docs/guides/dont-block-the-event-loop/]
+#### Folder structure
 
-Node is a preferred environment for API HTTP requests, file systems, streams, child-processes to render server-side data/payloads/information. It is easy to install and with node package manager(npm) offers access to a plethora of open source packages to add to apps/ projects.
+Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
-The fluid data flow client-to server, with Node.js, Express.js and associated npm packages, is due to the fact that node is based on JavaScript.
+1. [Certificates of courses completed]()
 
-It is therefore good for apps with a high volume of short messages in real-time operations (chat-bots, facial recognition, conferencing, gaming, e-commerce) that need real-time runners between the front end JavacSript code and the backend database. (Trello, googledocs, DropBox use Node.js).
+2. [Node and databases] - work in progress
 
-It is more scalable than Rails (Ruby) which can not shuffle around data quickly due to the “thick” application layer - ruby to ruby-on-rails.
+3. [Node fundamental concepts]()
 
-Node is largely used to limit the languages that a team uses to JavaScript, hence making teams cross-functional - this is not possible if the backend is run on PHP, Scala, Java and other non-JS languages.
+4. [A NodeJS full-stack app with MongoDb] work in progress
 
-This is why many developers like Node because it's lightweight and you can write your frontend and backend in the same language and share libraries, reduce code write times and tech stack adoption efforts.
+5. [Node and Express.js as a server]()
 
-The key way to use node is with the CommonJS module pattern and the require function - this method imports a module or file as an object into another file. Data files created in JavaScript can be imported with the require method into express and then used for routing API calls.
+6. [Web Sockets]()
 
-Node & Express are not good for CPU heavy applications.
+7. [Web Sockets App]()
 
-Node Documentation
-Home Page -[https://nodejs.org/en/docs/guides/getting-started-guide/]
-Guides - [https://nodejs.org/en/docs/guides/]
-LTS v.12 - [https://nodejs.org/docs/latest-v12.x/api/index.html]
+#### Project access
 
-Good articles to read to understand how and why you would use Node.js as the backend server
+**Install dependencies**
 
-Netgurus guide [https://www.netguru.com/blog/use-node-js-backend] a good pdf that can be downloaded is on the website
-Why use Node - Medium blog [https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e]
+`npm install -y` in each subfolder. Install dependencies outlined in the README.md files in each section.
+
+**Run logs with vanilla JS files**
+
+cd into file path node filename or node filepath/filename
+
+#### RESOURCES
