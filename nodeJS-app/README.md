@@ -9,7 +9,10 @@ open HTML with live-server extension on VSCode or drag and drop file into browse
 j-query, bootstrap, socket.io CDNs/Scripts
 
 **Server-side**
+Project dependencies
 `npm install express body-parser cors dotenv mongoose socket.io`
+Dev dependencies
+`npm install --save-dev nodemon babel-cli babel-preset-env babel-preset-stage-0`
 
 - Postman to check routes
 - MongoDB as database
@@ -71,6 +74,8 @@ app.get("/messages", (req, res) => {
 });
 ```
 
+<img src="/nodeJS-app/assets/data-client-to-server.png" alt="console data flow check" height="350"/>
+
 Now set up your post route.
 
 In `JQuery scripts`
@@ -92,4 +97,8 @@ $("#send").click(() => {
 });
 ```
 
+<img src="/nodeJS-app/assets/data-server-to-client.png" alt="server data flow check" height="350"/>
+
 STEP 3: Add sockets library for polling the responses back in real-time.
+
+The challenge here is that this project does not have the correct transpilers so we need to add them here.

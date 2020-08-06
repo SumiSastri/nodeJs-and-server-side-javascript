@@ -14,7 +14,9 @@
 
 - Node can not notify the browser/ user that the message has been updated in a live-chat app
 - The only way to achieve this behavior with HTTP requests is to do something called polling. With polling, every few seconds we send an HTTP request to check for updates
-- One WebSocket library is Socket.IO that works for both the browser and for Node. The advantage of this library is that if a browser is older and does not support WebSockets, it will default back to polling and it has that functionality built in so it will always work, even if it's not as efficient with older browsers.
+- The analogy is of kids in a car asking the parents when they are going to arrive every second which is what polling does
+- An event based library tells you when there is an update listening to an event and then what to do, the analogy is that the parents tell the kids they will notify them when they arrive, and unless they do that, they have not arrived.
+- One WebSocket library is Socket.IO that works for both the browser and for Node. The advantage of this library is that if a browser is older and does not support WebSockets, it will default back to polling and it has that functionality built in so it will always work.
 
 How to get sockets running in a project.
 
@@ -25,14 +27,29 @@ How to get sockets running in a project.
 3. Instantiate both modules in server.js
 
 ```
-const server = require('http').Server(app);
-const io = require('socket.io')(http)
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 ```
 
 change the `app.listen()` method
 
 ```
 server.listen(PORT, () => console.log(`your-app listening on ${PORT}`));
+```
+
+Another variation:
+
+```
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+```
+
+With the server assigned to a variable
+
+```
+const server = http.listen(5000, () => {
+  console.log("your-app listening on port", server.address().port);
+});
 ```
 
 4. Use the socket.io method with an event listener in server.js, the method takes the event "connection" as the first argument, this opens the socket, and we can check if a user is connected. The next method `socket.emit()` actually relays the message as an object, as the socket is on, we continue with the method `socket.on()` which listens to the next event, in this we pass the data that is coming back from the client-side.
@@ -47,11 +64,13 @@ console.log(data);
 })
 ```
 
-Everything works by events in socket, so, there's this event of connection when this event of connection happens then do this other event which is called message and send a message. So what we'll do is send this data. Basically, once someone is connected we'll send a message to that person so then we're going to wait for another event. So, there's going to be another event being emitted from the client, in the index.html Whatever data we pass from that other event in the client side file `index.html`, then we'll console log that event.
+Everything works by events in socket. There's this event of connection, the call back determines what happens on the connection event. For the moment we are just logging the event to console to check that the call back is working. With the message event the call back is to send a message. So what we'll do is send this data.
+
+Basically, once someone is connected we'll send a message to that person so then we're going to wait for another event. So, there's going to be another event being emitted from the client, in the index.html Whatever data we pass from that other event in the client side file `index.html`, then we'll console log that event.
 
 5. Connect backend to the front end in `index.html`
 
-In the HTML file, after the body tags, add 2 script files.
+In the HTML file, after the body tags, add 2 script files. The second script tag goes above the jQuery, the first script tag is the front-end CDN to sockets.
 
 ```
 <script src="/socket.io/socket.io.js"></script>
