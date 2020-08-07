@@ -29,8 +29,7 @@
     </div>
 
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
       crossorigin="anonymous"
     ></script>
     <script
@@ -43,40 +42,37 @@
       integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
       crossorigin="anonymous"
     ></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <script>
-      const socket = io.connect();
+      const socket = io.connect("localhost:5000");
       $(() => {
         $("#send").click(() => {
-          const messageData = {
+          let messageInputs = {
             name: $("#name").val(),
             message: $("#message").val(),
           };
-          postMessage(messageData);
+          postMessage(messageInputs);
         });
         getMessages();
       });
 
-      socket.on("message", addMessages);
+      socket.on("message", addMessage);
 
-      const addMessages = (messageData) => {
+      function addMessage(messageInputs) {
         $("#messages").append(
-          `<h4> ${messageData.name} </h4> <p> ${messageData.message} </p>`
+          `<h4> ${messageInputs.name} </h4> <p> ${messageInputs.message} </p>`
         );
-      };
+      }
 
       const getMessages = () => {
         $.get("http://localhost:5000/messages", (data) => {
-          data.forEach(addMessages);
+          data.forEach(addMessage);
         });
       };
 
-      const postMessage = (messageData) => {
-        $.post("http://localhost:5000/messages", messageData);
+      const postMessage = (messageInputs) => {
+        $.post("http://localhost:5000/messages", messageInputs);
       };
-      $("#send").click(() => {
-        getMessages();
-      });
     </script>
   </body>
 </html>

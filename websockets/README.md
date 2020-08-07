@@ -101,7 +101,18 @@ socket.on("message", (data) => {
 
 6. Connecting front-end sockets to the backend
    Debugging:
-   Sometimes 1-5 work well but when you actually add socket methods the front end does not find where the sockets are stored in the file system `find ./ | grep client | grep socket.io.js`
+   Stackoverflow[https://stackoverflow.com/questions/19426882/node-js-socket-io-socket-io-js-not-found]
+   If you are using a VPN, you may find the sockets error is that it is looking for a local host other than what you have specified in the port.
+
+Sometimes 1-5 work well but when you actually add socket methods the front end does not find where the sockets are stored in the file system
+METHOD 1:
+`npm install socket.io --save` run this command at the base location/where your index.html/ static root file is. This installs socket.io to the area in which the command is run, not globally, and, in addition, it automatically corrects/updates your package.json file so node.js knows that it is there.
+
+Then change your source path from `'/socket.io/socket.io.js'` to `'http://' + location.hostname + ':3000/socket.io/socket.io.js'.`
+
+METHOD 2: Is longer and is not guaranteed to work
+
+`find ./ | grep client | grep socket.io.js`
 
 This will give you the relative-file path you need`/websocketsApp/node_modules/socket.io-client/dist/socket.io.js` or the absolute file-path `/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/node_modules/socket.io-client/dist/socket.io.js`
 
