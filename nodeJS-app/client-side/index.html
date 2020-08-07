@@ -65,8 +65,8 @@
       }
 
       const getMessages = () => {
-        $.get("http://localhost:5000/messages", (data) => {
-          data.forEach(addMessage);
+        $.get("http://localhost:5000/messages", (apiMessages) => {
+          apiMessages.forEach(addMessage);
         });
       };
 
