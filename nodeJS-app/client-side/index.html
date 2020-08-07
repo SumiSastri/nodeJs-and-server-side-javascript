@@ -43,15 +43,9 @@
       integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
       crossorigin="anonymous"
     ></script>
-    <script src="../socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io.connect("http://localhost:5000");
-      socket.on("message", (data) => {
-        console.log(data);
-        socket.emit("another event", {
-          userReply: "The socket test worked, proceed",
-        });
-      });
+      const socket = io.connect();
       $(() => {
         $("#send").click(() => {
           const messageData = {
@@ -62,6 +56,8 @@
         });
         getMessages();
       });
+
+      socket.on("message", addMessages);
 
       const addMessages = (messageData) => {
         $("#messages").append(

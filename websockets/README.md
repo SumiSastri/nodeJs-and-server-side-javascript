@@ -100,6 +100,15 @@ socket.on("message", (data) => {
 ```
 
 6. Connecting front-end sockets to the backend
+   Debugging:
+   Sometimes 1-5 work well but when you actually add socket methods the front end does not find where the sockets are stored in the file system `find ./ | grep client | grep socket.io.js`
+
+This will give you the relative-file path you need`/websocketsApp/node_modules/socket.io-client/dist/socket.io.js` or the absolute file-path `/Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/node_modules/socket.io-client/dist/socket.io.js`
+
+Copy this into another folder to make it more discoverable - use the absolute paths they work better
+`cp /Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/node_modules/socket.io-client/dist/socket.io.js /Users/ssbt/Documents/GitHub/node.js-and-server-side-javascript/websocketsApp/assets/socket-files`
+
+Change scripts `<script type="text/javascript" src="/websocketsApp/assets/sockets-files"></script>`
 
 You need to add socket methods to the front end to listen to user inputs
 

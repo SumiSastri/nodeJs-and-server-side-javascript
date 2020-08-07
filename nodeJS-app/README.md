@@ -108,3 +108,22 @@ Follow the steps 1-5 in the sockets section to connect the sockets front-end fro
 And check if the reverse client to server is working in the terminal.
 
 <img src="/nodeJS-app/assets/socket-test.png" alt="sockets data flow check" height="250"/>
+
+STEP 4: Emit events from sockets
+
+In Express `server.js`
+Now that we know the server is on and working with the `io.on()` we are ready to use the `socket.emit()` method on the backend to listen to a message event. The call back is the body of the message request
+
+```
+  io.emit('message', req.body)
+```
+
+which is posted from the front end after the messages are pushed into the array.
+
+In `JQuery scripts`
+
+We can now pass the `addMessages()` function that we have created as the call-back of the `socket.on` method that is listening to message events on the front end and test if the front and back-end are communicating via this open socket.
+
+```
+    socket.on('message', addMessage)
+```
