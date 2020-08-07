@@ -16,11 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-// const apiMessages = [
-//   { name: "Zee", message: "Hi gang" },
-//   { name: "Paraic", message: "Hey whatsup" },
-// ];
-
 const MessageModel = require(".././nodeJS-app/server-side/db/models/messageModel");
 
 const dBurl = process.env.DB_CONNECTION;

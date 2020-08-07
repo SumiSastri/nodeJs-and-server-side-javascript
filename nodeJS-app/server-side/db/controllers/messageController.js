@@ -10,9 +10,13 @@ router.get("/messages", (req, res) => {
   });
 });
 
+// app.get('/messages', (req, res) => {
+//   res.send(messages)
+// })
+
 // POST to @/messages route
 router.post("/messages", (req, res) => {
-  const messageInputs = new MessageModel(req.body);
+  let messageInputs = new MessageModel(req.body);
 
   messageInputs.save((err) => {
     if (err) sendStatus(500);
