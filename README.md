@@ -8,11 +8,15 @@
 
 #### Project goals
 
-This project focuses on server-side JavaScript with Node.js.
+This project focuses on server-side JavaScript with Node.js. Certificates of completion from Linked-in Learning focusing on levelling-up server-side js.
+
+1. Node essential traning (July 2020)
+2. Node real-time web with Socket.io (Aug 2020)
+3. Express essential training(Aug 2020)
 
 **What is the front-end (client-side)?**
 
-The front end (client side) is based on three key languages - HTML (hyper-text-markup-language), CSS (Cascading Style Sheets) and JavaScript. JavaScript is a browser-based language that needs its host - HTML to operate its code blocks(algorithms).
+The front end (client side) is based on three key languages - HTML (hyper-text-markup-language, CSS (Cascading Style Sheets) and JavaScript. JavaScript is a browser-based language that needs its host - HTML to operate its code blocks(algorithms).
 
 Today front-end browsers are in many client devices - phone, tablet, computer screen, wrist watch. It mainly refers to the user interface with a web/mobile application.
 
@@ -57,17 +61,19 @@ Folders are organised in sections based on following documentation, research fro
 
 1. [Certificates of courses completed]()
 
-2. [Node and databases] - work in progress
+2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
+   work in progress
 
-3. [Node fundamental concepts]()
+3. [A NodeJS full-stack app with MongoDb](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS-app)
+   work in progress
 
-4. [A NodeJS full-stack app with MongoDb] work in progress
+4. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 
-5. [Node and Express.js as a server]()
+5. [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
 
-6. [Web Sockets]()
-
-7. [Web Sockets App]()
+6. [Web Sockets](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websockets)
+   work in progress
+7. [Web Sockets App](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websocketsApp)
 
 #### Project access
 
@@ -93,7 +99,7 @@ Why use Node - Medium blog [https://medium.com/the-node-js-collection/why-the-he
 
 #### What is nodemon?
 
-Nodemon hot loads the back end server so you do not need to run commands such as `node src/backend/app.js` (used in this project).
+Nodemon hot loads the back end server so you do not need to run commands such as `node src/backend/app.js`
 Check in your package-JSON for the install and read documentation [https://github.com/remy/nodemon] which helps bug fixing if you encounter challenges hot-loading.
 
 #### Backend package managers - Node vs. Yarn

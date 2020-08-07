@@ -25,10 +25,6 @@ app.get("/messages", (req, res) => {
   res.send(messageData);
 });
 
-// app.get("/messages", (req, res) => {
-//   res.sendFile(__dirname + "/client-side/index.html");
-// });
-
 app.post("/messages", (req, res) => {
   messageData.push(req.body);
   res.sendStatus(200);
@@ -45,5 +41,5 @@ io.on("connection", (socket) => {
 });
 
 const server = http.listen(5000, () => {
-  console.log("your-app listening on port", server.address().port);
+  console.log("your-app listening on port", server.address().PORT);
 });
