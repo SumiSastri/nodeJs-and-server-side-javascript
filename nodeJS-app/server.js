@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-const MessageModel = require(".././nodeJS-app/server-side/db/models/messageModel");
+const MessageModel = require(".././nodeJS-app/server-side/db/data-models/messageModel");
+// const router = require(".././nodeJS-app/server-side/db/api-controllers/messageController");
+// app.use("/messages", router);
 
 const dBurl = process.env.DB_CONNECTION;
 
