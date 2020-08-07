@@ -85,3 +85,74 @@ Stitch is a serverless platform that makes it easier to use MongoDB and your web
 The Charts feature allows you to create visual representations of your data.
 
 Atlas also allows you to configure users with different privileges levels in your database.
+
+MongoDb - cloud based
+
+1. Create a MongodB user name and password to use the Mongo cloud [https://account.mongodb.com/account/login] Then login with your user nameand passwrod
+2. Go to project, create new project, give project a name, check project owner and click set-up project
+3. Prompt to set up cluster choose free shared cluster - clusters are groups of servers that store your data.
+4. Choose server (AWS, google cloud or azure) geographic region for the cluster (one close to your region good) and choose the sandbox option for the cluster tier, choose the free forever option for student projects, click create cluster
+5. The cluster will be created, it takes a little while for the servers to be configured
+6. Once created click on connect to create a new user
+7. You will be prompted to add IP address this is to whitelist your IP address so that when you connect your local schemas to the cloud Db they will be linked and connected (save steps 7,8 and 9 somewhere so that you can access them for the project)
+
+DEBUGGING - IF YOU USE A VPN YOUR IP WILL CHANGE SO GO TO THE CONFIGURATION AND ADD THE NEW IP ADDRESS AND SAVE IT - SO THAT YOU CAN SEE THE OLD AND NEW IP ADDRESSES THAT YOU HAVE WHIELISTED
+
+8. Create your user name
+9. Auto-generate a password, click show and save the password - if you lose this you will not be able to connect
+10. Once you have saved all of the information you may require later, click add user
+11. choose a connection method - option 3 - using compass
+12. Get a connection string or URI
+    `mongodb+srv://<username>:<password>@cluster0.xfd8y.mongodb.net/test`
+    Replace `<username>` and `<password>` with the password and username you have stored in steps 8 and 9 (Save this string as well - make sure you have taken out the placeholder greater and less than signs around the username and password these are just placeholders)
+13. Should you lose your place on the MongoCloud got back to click connect,
+14. Now go back to your server to connect the local app to the db
+15. First create a dotenv file `touch .env` add ```mongodb+srv://<username>:<password>@cluster0.xfd8y.mongodb.net/test` WITHOUT THE PASSWORD AND USER NAME to the file and it is NOT a string
+16. Make sure that the .env file is ignored in your `.gitignore` files
+17. Now git commit to your git repository and check that the files have been ignored
+18. Now set up mongoDB and the connection to the mongoCloudDB
+
+```
+require("dotenv").config();
+
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 5000;
+const cors = require("cors");
+
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+
+app.use(cors());
+app.use(express.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send("your app is working");
+});
+
+const dBurl = process.env.DB_CONNECTION;
+mongoose.connect(
+  dBurl,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  },
+  (error) => {
+    if (!error) {
+      console.log("mongo-db connection working");
+    } else {
+      console.log("check mongo-db connection", error);
+    }
+  }
+);
+mongoose.Promise = global.Promise;
+
+app.listen(PORT, () => console.log(`your-app listening on ${PORT}`));
+```

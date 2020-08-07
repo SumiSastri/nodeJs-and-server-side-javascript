@@ -1,26 +1,31 @@
 const express = require("express");
 const router = express.Router();
 
-// import the schema
-const Message = require("../models/messageModel.js");
+const MessageModel = require("../models/messageModel.js");
 
 // GET @/messages route
 router.get("/messages", (req, res) => {
-  Message.find({}, (err, messages) => {
-    res.send(messages);
+  MessageModel.find({}, (err, apiMessages) => {
+    res.send(apiMessages);
   });
 });
 
 // POST to @/messages route
 router.post("/messages", (req, res) => {
-  const message = new Message(req.body);
+  const messageInputs = new MessageModel(req.body);
 
-  message.save((err) => {
+  messageInputs.save((err) => {
     if (err) sendStatus(500);
 
     io.emit("message", req.body);
     res.sendStatus(200);
   });
 });
+
+// app.post("/messages", (req, res) => {
+//   apiMessages.push(req.body);
+//   io.emit("message", req.body);
+//   res.sendStatus(200);
+// });
 
 module.exports = router;

@@ -102,13 +102,34 @@ socket.on("message", (data) => {
 6. Connecting front-end sockets to the backend
    Debugging:
    Stackoverflow[https://stackoverflow.com/questions/19426882/node-js-socket-io-socket-io-js-not-found]
-   If you are using a VPN, you may find the sockets error is that it is looking for a local host other than what you have specified in the port.
 
 Sometimes 1-5 work well but when you actually add socket methods the front end does not find where the sockets are stored in the file system
-METHOD 1:
-`npm install socket.io --save` run this command at the base location/where your index.html/ static root file is. This installs socket.io to the area in which the command is run, not globally, and, in addition, it automatically corrects/updates your package.json file so node.js knows that it is there.
 
-Then change your source path from `'/socket.io/socket.io.js'` to `'http://' + location.hostname + ':3000/socket.io/socket.io.js'.`
+METHOD 1:
+Steps to debug
+
+1.  `npm install socket.io --save` in static files (index.html) for example, you may have installed it globally and when you look at the debugger, the file path is empty.
+2.  Change your script file and instantiate the socket explicitly adding your localhost that you have set up in your server file
+
+`<script src="http://localhost:5000/socket.io/socket.io.js"></script> <script> const socket = io.connect("localhost:5000"); $(() =>`
+
+Double check that the data is flowing by opening a new browser tab and pasting `http://localhost:5000/socket.io/socket.io.js` you should see the socket.io.js data
+
+3. Double check that your server has been set-up correctly and if you get a CORs error `npm install cors` then add it to the `server.js` (or index.js whatever you have chosen to name your server file)
+
+`const cors = require("cors"); const http = require("http").Server(app); const io = require("socket.io")(http);`
+
+Then use the Express middleware `app.use()` method to instantiate cors. Place the middleware this above your connection to your static root file
+
+`app.use(cors()); app.use(express.static(__dirname));`
+
+4. As a final check make sure your server is connected with the `http.listen()` method where you are assigning your port, the first arg is your port number, for example I have used 5000 here.
+
+`const server = http.listen(5000, () => { console.log("your-app listening on port", server.address().port); });`
+
+5. As your `io.on()` method is working, and your sockets data is connected client-side, add your `io.emit()` method with the callback logic you need and in the front-end JavaScript files use the `socket.on()` method again with the call back logic you require. Check that the data is flowing.
+
+I have also edited a comment above as it was the most useful to me - but I had some additional steps to take to make the client-server connection work.
 
 METHOD 2: Is longer and is not guaranteed to work
 

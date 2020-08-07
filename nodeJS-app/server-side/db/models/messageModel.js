@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
+// sets up the constructor for the messageApiData and takes it out of router impots it into Express router and reimports into server
 
-const Message = new Schema({
+const MessageModel = new Schema({
   userName: {
     type: String,
     required: true,
@@ -13,5 +14,5 @@ const Message = new Schema({
   },
 });
 
-module.exports = mongoose.model("Message", Message);
-// OR module.exports = Message = mongoose.model('Message', Message);
+module.exports = mongoose.model("Message", MessageModel);
+// OR module.exports = Message = mongoose.model('Message', MessageModel);

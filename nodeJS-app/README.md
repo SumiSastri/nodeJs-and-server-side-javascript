@@ -2,7 +2,6 @@
 
 `git clone`
 `npm init -y`
-`nodemon`
 open HTML with live-server extension on VSCode or drag and drop file into browser
 
 **Client side**
@@ -51,10 +50,10 @@ $("#send").click(() => {
 
 STEP 2: Set up back end with Express server (see set-up in the Express section of this repo or check Express documentation).
 
-In Express `server.js` Move the data from the front end (jQuery scripts) to the back end as a hardcoded array.
+In Express `server.js` Move the data from the front end (jQuery scripts) to the back end as a hardcoded array. To avoid confusion as to the origin of the data, I am calling this data `apiMessages` and the `inputMessages` for the frontend user inputs.
 
 ```
-const messages = [
+const apiMessages = [
   { name: "Zee", message: "Hi gang" },
   { name: "Paraic", message: "Hey whatsup" },
 ];
@@ -87,12 +86,12 @@ Those functions, now are also passed to the click handler.
 
 ```
 $("#send").click(() => {
-    const messageData = {
-      name: $("#name").val(),
-      message: $("#message").val(),
-    };
-    postMessage(messageData);
-  });
+          let messageInputs = {
+            name: $("#name").val(),
+            message: $("#message").val(),
+          };
+          postMessage(messageInputs);
+        });
   getMessages();
 });
 ```
@@ -122,8 +121,20 @@ which is posted from the front end after the messages are pushed into the array.
 
 In `JQuery scripts`
 
-We can now pass the `addMessages()` function that we have created as the call-back of the `socket.on` method that is listening to message events on the front end and test if the front and back-end are communicating via this open socket.
+We can now pass the `addMessage()` function that we have created as the call-back of the `socket.on` method that is listening to message events on the front end and test if the front and back-end are communicating via this open socket.
 
 ```
     socket.on('message', addMessage)
 ```
+
+You may find that the front-end and back-end are not communicating at this point.
+
+- In the sockets section of this repo there is a 5-step debugging guide and a stack-overflow link to help ensure that the connection works.
+
+Now that you can send hardcoded server data to the client and userinput data to the backend, we can persist the data in a MongoDb database.
+
+STEP 5: Setting up MongoDb
+
+There are 18 steps to set up in the Mongosection.
+
+STEP 6: Refactors
