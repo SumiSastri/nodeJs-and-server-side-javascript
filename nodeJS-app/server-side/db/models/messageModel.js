@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-// sets up the constructor for the messageApiData and takes it out of router impots it into Express router and reimports into server
+
+// const apiMessages = [
+//   { name: "Zee", message: "Hi gang" },
+//   { name: "Paraic", message: "Hey whatsup" },
+// ];
+//  Model takes out hard coded array from server and puts it into a schema
 
 const MessageModel = new Schema({
-  userName: {
+  name: {
     type: String,
     required: true,
   },

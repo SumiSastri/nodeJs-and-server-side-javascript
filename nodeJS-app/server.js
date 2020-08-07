@@ -31,20 +31,20 @@ app.get("/messages", (req, res) => {
   });
 });
 
-// app.post("/messages", (req, res) => {
-//   const messageInputs = new MessageModel(req.body);
+app.post("/messages", (req, res) => {
+  let messageInputs = new MessageModel(req.body);
 
-//   messageInputs.save((err) => {
-//     if (err) sendStatus(500);
+  messageInputs.save((err) => {
+    if (err) sendStatus(500);
 
-//     io.emit("message", req.body);
-//     res.sendStatus(200);
-//   });
-// });
+    io.emit("message", req.body);
+    res.sendStatus(200);
+  });
+});
 
-// io.on("connection", (socket) => {
-//   console.log("user connected");
-// });
+io.on("connection", (socket) => {
+  console.log("user connected");
+});
 
 mongoose.connect(
   dBurl,
@@ -63,6 +63,7 @@ mongoose.connect(
 );
 mongoose.Promise = global.Promise;
 
+// HARD CODED both work
 // const server = http.listen(5000, () => {
 //   console.log("your-app listening on port", server.address().port);
 // });
