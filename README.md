@@ -59,7 +59,7 @@ Node & Express are not good for CPU heavy applications.
 
 Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
-1. [Certificates of courses completed]()
+1. [Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript)
 
 2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
    work in progress
@@ -73,6 +73,7 @@ Folders are organised in sections based on following documentation, research fro
 
 6. [Web Sockets](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websockets)
    work in progress
+
 7. [Web Sockets App](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websocketsApp)
 
 #### Project access

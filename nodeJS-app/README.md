@@ -74,7 +74,7 @@ app.get("/messages", (req, res) => {
 });
 ```
 
-<img src="/nodeJS-app/assets/data-client-to-server.png" alt="console data flow check" height="350"/>
+<img src="/nodeJS-app/assets/data-client-to-server.png" alt="console data flow check" height="250"/>
 
 Now set up your post route.
 
@@ -97,8 +97,14 @@ $("#send").click(() => {
 });
 ```
 
-<img src="/nodeJS-app/assets/data-server-to-client.png" alt="server data flow check" height="350"/>
+<img src="/nodeJS-app/assets/data-server-to-client.png" alt="server data flow check" height="250"/>
 
 STEP 3: Add sockets library for polling the responses back in real-time.
 
-Follow the steps 1-5 in the sockets section to connect the sockets front-end and backend
+Follow the steps 1-5 in the sockets section to connect the sockets front-end from the server
+
+<img src="/nodeJS-app/assets/socket-test-server-to-client.png" alt="sockets data flow check" height="250"/>
+
+And check if the reverse client to server is working in the terminal.
+
+<img src="/nodeJS-app/assets/socket-test.png" alt="sockets data flow check" height="250"/>
