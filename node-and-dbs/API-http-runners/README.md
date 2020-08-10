@@ -19,13 +19,63 @@ The backend (server side) depends on API's to run HTTP requests from databases t
 
 The process of converting the data in javascript from a backend database in a language that is not javascript is done through JSON - javascript object notation.
 
-#### What is the JavaScript event-loop?
+## What is JSON?
 
-Node and express provide an event-driven architecture for apps and projects. An event is a series of occurences driven by changes on the frontend. Events build up in the task queue and are executed by parsers (both in the front-end and back-end).
+MongoDB is a document database, and we frequently discuss data models looking at JSON representations of documents. In addition, the MongoDB query language, and much of the administration of MongoDB, requires some level of understanding of JSON.
 
-As javascript is a single-threaded non-blocking code base, it is able to deal with multiple tasks on the task queue driven by events.
+JSON, which is an acronym for JavaScript Object Notation, is a popular format for representing documents.When discussing MongoDB, we typically use the term JSON document to refer to such structures. But JSON object is equally correct. JSON is a widely used data format because it is both easy for humans to read and edit and easy for computers to parse and output.
 
-For more detail on the event-loop, MDN documentation [https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop]
+JSON documents begin and end with curly braces. They're composed of fields, and each field has a key and a value. In other programming languages, JSON documents are analogous to objects, structs, maps, or dictionaries.
+
+One big advantage of using MongoDB is that the data model used by the database closely resembles the data structures you work with in your programming language of choice.
+
+## Why JSON?
+
+JSON is a lightweight store of data into text so that HTTP calls can be made, parsed (interpreted) by browsers and sent back to databases. As it is a text-based format it is lightweight. It is then reconverted back into the format that the database requires. It therefore stores and transports data quickly and efficiently. Compared to XML parsing, JSON is less verbose. JSON uses less data overall so reduces cost and increases parsing speed.
+
+The way that JavaScript is converted into JSON is to intatiate a JavaScript object to a variable. This object is then assigned to the method `JSON.parse()`. The method, parses the JavaScript object and convert this JavaScript Object (front-end, client-side language) into Java Script Obect Notation(JSON). The converted object to JSON is sent server-side: Note the syntax to convert a JS object into JSON -
+
+`const objectName = JSON.parse ('{"name":Kodflix", "description":"some description"})'`
+
+The backend now gets a JSON request. JSON is read and the response method used in the back-end code should convert the body of the response first into text then into JSON response with the `JSON.stringify()` method. The backend data is converted into text and intatiated to a variable that is the new response payload (data) which is text that needs to be converted back into JSON. JSON is then
+
+`const convertToJSON = JSON.stringify({name: 'Kodflix', id: 1})`
+
+Note the JSON vs JavaScript object syntax. JavaScript the name value pair, only if the value is a string is it in quotes, however with JSON both the name and value are in strings. JSON objects both the name and value pair are enclosed in quotes, to denote both are strings.
+
+However, there are also similarties - curly-braces hold the values of an object, square-braces hold the values of arrays.
+
+To visualise JSON better - add the Chrome Extension JSONView
+
+Edureka has a good video worth watching[https://www.youtube.com/watch?v=uw_rP5bV9r0] for a more detailed understanding.
+
+#### SOAP vs. REST?
+
+SOAP is an acryonym for Simple Object Access Protocol while REST is an acryonynm for Representational State Transfer (REST). Both are Application Protocol Interfaces that enter into the cycle of calling, posting, updating and deleting data during the client-server request-response cyle is also called the CRUD cycle - Create, Read, Update, Delete.
+
+API's call the data from the database, posts this data on the web-page, updates the data that it receives from the front-end, sends it back to the backend and saves it or if it is not needed the data is deleted.
+
+SOAP, initially created by Microsoft, is a more rigid way of accessing databases. SOAP relies on XML calls while REST on JSON. SOAP works better with legacy systems such as the Distributed Component Object Model (DCOM) and Common Object Request Broker Architecture (CORBA).
+
+SOAP is a more rigid system that is intolerant of errors. However, SOAP processes can be automated and can be used with STMP (simple mail transfer protocol) as well as HTTP, which means data can be transfered not just to the web but via electronic mail systems.
+
+REST is light-weight becuase of JSON and JavaScript developers prefer REST to SOAP as a significant amount of code needs ot be written to transform XML data.
+
+In the CRUD cycle, REST has only four easy to memorise methods that describe everything that the API call does - get, post, put and delete.
+
+The methods represent the current state of the object - that is where the name Representational State Transfer (REST) gets it's name and in what state (or payload/data) it is in during transit from client to server.
+
+It is therefore an architectural style for communicating between client-server. It is a state-less model as the payloads are merely a representation of state at calltime.
+
+There is no choice between using SOAP or REST as it is already pre-defined as an architectural service and you have to use the system that the API creator requires.
+
+Some sites, like Amazon, support both.
+
+A good blog to read [https://smartbear.com/blog/test-and-monitor/understanding-soap-and-rest-basics/] and a little more technical version [https://www.soapui.org/learn/api/soap-vs-rest-api.html]
+
+Restful-React - As React defines itself as a front-end library, it allows users to figure out what works best for the app - this provides building blocks and flexiblity it also means that there are no protocols to follow, it does not prescribe how REST API's should be created.
+
+Read More on API's and MVC [https://www.codecademy.com/articles/what-is-rest][https://www.codecademy.com/articles/mvc]
 
 #### What is Ajax and async JavaScript?
 
@@ -58,31 +108,3 @@ Promises take 2 arguments `return new Promise (resolve, reject)` followed by`.th
 #### ES-8 Async Await
 
 Async await is built on top of promises - it makes promises look like synchronous code. As JavaScript is now used both in the back-end and front-end, it helps server-side and client-side developers understand the code base. There are two key words `async` and `await` it is syntactic sugar over promises.
-
-#### SOAP vs. REST?
-
-SOAP is an acryonym for Simple Object Access Protocol while REST is an acryonynm for Representational State Transfer (REST). Both are Application Protocol Interfaces that enter into the cycle of calling, posting, updating and deleting data during the client-server request-response cyle is also called the CRUD cycle - Create, Read, Update, Delete.
-
-API's call the data from the database, posts this data on the web-page, updates the data that it receives from the front-end, sends it back to the backend and saves it or if it is not needed the data is deleted.
-
-SOAP, initially created by Microsoft, is a more rigid way of accessing databases. SOAP relies on XML calls while REST on JSON. SOAP works better with legacy systems such as the Distributed Component Object Model (DCOM) and Common Object Request Broker Architecture (CORBA).
-
-SOAP is a more rigid system that is intolerant of errors. However, SOAP processes can be automated and can be used with STMP (simple mail transfer protocol) as well as HTTP, which means data can be transfered not just to the web but via electronic mail systems.
-
-REST is light-weight becuase of JSON and JavaScript developers prefer REST to SOAP as a significant amount of code needs ot be written to transform XML data.
-
-In the CRUD cycle, REST has only four easy to memorise methods that describe everything that the API call does - get, post, put and delete.
-
-The methods represent the current state of the object - that is where the name Representational State Transfer (REST) gets it's name and in what state (or payload/data) it is in during transit from client to server.
-
-It is therefore an architectural style for communicating between client-server. It is a state-less model as the payloads are merely a representation of state at calltime.
-
-There is no choice between using SOAP or REST as it is already pre-defined as an architectural service and you have to use the system that the API creator requires.
-
-Some sites, like Amazon, support both.
-
-A good blog to read [https://smartbear.com/blog/test-and-monitor/understanding-soap-and-rest-basics/] and a little more technical version [https://www.soapui.org/learn/api/soap-vs-rest-api.html]
-
-Restful-React - As React defines itself as a front-end library, it allows users to figure out what works best for the app - this provides building blocks and flexiblity it also means that there are no protocols to follow, it does not prescribe how REST API's should be created.
-
-Read More on API's and MVC [https://www.codecademy.com/articles/what-is-rest][https://www.codecademy.com/articles/mvc]
