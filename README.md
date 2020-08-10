@@ -14,25 +14,25 @@ This project focuses on server-side JavaScript with Node.js. Certificates of com
 
 Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
-1. ![Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript)
+1. [Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript)
 
 - Node essential training (July 2020)
 - Node real-time web with Socket.io (Aug 2020)
 - Express essential training(Aug 2020)
 
-2. ![Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
+2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
    work in progress
 
-3. ![Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS-app)
+3. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS-app)
 
 4.[Node and mongoDB]()
 work in progress
 
-5. ![Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
+5. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 
-6. ![Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
+6. [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
 
-7. ![Web Sockets](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websockets)
+7. [Web Sockets](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websockets)
    work in progress
 
 8. [Web Sockets App](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websocketsApp)
