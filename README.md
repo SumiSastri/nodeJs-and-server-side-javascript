@@ -84,3 +84,6 @@ Yarn takes up a lot of disk space, but is faster, manages licences better howeve
 * Which is better - op-ed[https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/]
 * Scotch[https://scotch.io/tutorials/yarn-package-manager-an-improvement-over-npm]
 * Keycdn (almost the same as scotch.io) [https://www.keycdn.com/blog/npm-vs-yarn]
+
+Removing untracked files
+[https://linuxize.com/post/how-to-remove-untracked-files-in-git/]
