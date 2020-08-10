@@ -87,3 +87,12 @@ Yarn takes up a lot of disk space, but is faster, manages licences better howeve
 
 Removing untracked files
 [https://linuxize.com/post/how-to-remove-untracked-files-in-git/]
+
+$git clean -d -n - lists directories that will be removed
+$git clean -d -i - allows you to select options file-by-file whether to keep or remove
+$git clean -d -f - force removes untracked directories
+$git clean -fx
+
+More debugging options
+
+[https://stackoverflow.com/questions/61212/how-to-remove-local-untracked-files-from-the-current-git-working-tree]
