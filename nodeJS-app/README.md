@@ -137,4 +137,8 @@ STEP 5: Setting up MongoDb
 
 There are 18 steps to set up in the Mongosection.
 
-STEP 6: Refactors
+STEP 6: Apis
+
+1. Api-controllers control the Api-routes
+2. Api-routes consume data from the database to create the routes to and from the data-base
+3. The controllers consume the Api-routes to connec the databases to the frontend
