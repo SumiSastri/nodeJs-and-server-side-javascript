@@ -25,8 +25,8 @@ Folders are organised in sections based on following documentation, research fro
 
 3. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS-app)
 
-4.[Node and mongoDB]()
-work in progress
+4. [Node and mongoDB]()
+   work in progress
 
 5. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 

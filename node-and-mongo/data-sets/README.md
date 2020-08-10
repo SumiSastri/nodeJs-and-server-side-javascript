@@ -1,4 +1,4 @@
-## JSON
+## What is JSON?
 
 MongoDB is a document database, and we frequently discuss data models looking at JSON representations of documents. In addition, the MongoDB query language, and much of the administration of MongoDB, requires some level of understanding of JSON.
 
@@ -28,7 +28,12 @@ To visualise JSON better - add the Chrome Extension JSONView
 
 Edureka has a good video worth watching[https://www.youtube.com/watch?v=uw_rP5bV9r0] for a more detailed understanding.
 
-## Mongo Collections, Documents, Schemas
+## Mongo Collections, Documents, Schemas & Models
+
+- A Collection is namespace for all the data/ documents/ fields/ models of data in the database
+- A document is next in the hierarchy and lives within a collection which holds schemas and modesl
+- Schemas - define the structure of the objects in the collection
+- Models - represents separate collections in the db (user model, product model, etc.)
 
 Once connected, and having created your first cluster, you will need to create a new cluster each time you want a new database.
 
