@@ -23,19 +23,12 @@ Folders are organised in sections based on following documentation, research fro
 2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
    work in progress
 
-3. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS-app)
-
-4. [Node and mongoDB]()
+3. [Node and mongoDB]()
    work in progress
 
-5. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
+4. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 
-6. [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
-
-7. [Web Sockets](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websockets)
-   work in progress
-
-8. [Web Sockets App](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/websocketsApp)
+5. [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
 
 #### Project access
 
