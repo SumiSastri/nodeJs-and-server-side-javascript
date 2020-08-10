@@ -92,6 +92,7 @@ $git clean -d -n - lists directories that will be removed
 $git clean -d -i - allows you to select options file-by-file whether to keep or remove
 $git clean -d -f - force removes untracked directories
 $git clean -fx
+\$git show-stash
 
 More debugging options
 
