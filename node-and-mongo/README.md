@@ -45,7 +45,61 @@ There has been a number of updates to Compass and the UI keeps changing, the fun
 
 See the steps below to connect your Atlas instance in the cloud to the database and use the cloud-based interface using Compass.
 
-## Connect to MongoDB
+## Installing MongoDB locally
+
+With a mac best to use Homebrew.
+
+If you don't have Homebrew, install it - steps to install HomeBrew. Homebrew is a package manager for OS X. Packages are bundles of source code distributed by developers of software, which can be compiled and installed on your machine.
+
+Copy and paste the following command into the terminal, then hit enter
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+```
+
+Press enter at the prompt, and enter your laptop password
+
+Once installation has finished type `brew doctor`. It should say Your system is ready to brew or may prompt for an update
+
+```
+Update Homebrew: brew update
+```
+
+You are now ready to install mongo with Node.
+
+It's a non-relational (noSQL) database. Install the community version the steps recommend installing it with Homebrew If you get stuck documentation [https://www.mongodb.com/download-center/community]
+
+Install it with Homebrew:
+
+`brew install mongodb`
+The program is saved by default in the file path /usr/local/var/mongodb Run the following command to ensure you have a place for mongo to store the data for your databases:
+
+```
+sudo mkdir -p /data/db && sudo chown -R $(whoami)/data/db
+note: whoamI is not a place holder it finds you from your users directory
+
+OR
+
+sudo mongod --dbpath /Users/your_name_placeholder/data/db
+
+```
+
+NOTE: here Users is casesensitive and your name is a placeholder
+
+To check everything is working type mongod in the terminal. It will print a lot of stuff on the screen. After a few moments you should see this line at the bottom:
+
+```
+I NETWORK [thread1] waiting for connections on port 27017
+```
+
+If you get a socket in use error code 100 Catalina update stack overflow guidance [https://stackoverflow.com/questions/47975929/socketexception-address-already-in-use-mongodb]
+
+Here are some Catalina installation challenges - questions answered [https://stackoverflow.com/questions/58283257/mongodb-doesnt-work-on-latest-mac-os10-15] Here is a reddit thread [https://www.reddit.com/r/mongodb/comments/d7takd/macos_x_catalina_105_beta_and_mongo_a_warning/]
+
+Now that you have your database up and running you are ready to create your collection, documents and schemas for your database.
+
+## Connect to MongoDB and the cloud in your App
 
 ### METHOD 1: Keeps database in the cloud
 
@@ -68,3 +122,10 @@ DEBUGGING - IF YOU USE A VPN YOUR IP WILL CHANGE SO GO TO THE CONFIGURATION AND 
     Replace `<username>` and `<password>` with the password and username you have stored in steps 8 and 9 (Save this string as well - make sure you have taken out the placeholder greater and less than signs around the username and password these are just placeholders)
 13. Should you lose your place on the MongoCloud got back to click connect,
 14. Now go back to your server to connect the local app to the db - check the mongo-and-express folder for details
+
+**RoboMongo**
+To visualise the data download Robot3T now called RoboMongo, Studio3T is free for 30 days, while Robot3T is free forever. Once downloaded you will find your Db in Robot 3T
+
+Go to File -> Connect... and then click on Create (this is at the top of the tool bar not at the bottom as a button do not click connect)
+
+- Once you click create - On the first tab (Connection) just type the name of the connection.
