@@ -19,6 +19,7 @@ Folders are organised in sections based on following documentation, research fro
 - Node essential training (July 2020)
 - Node real-time web with Socket.io (Aug 2020)
 - Express essential training(Aug 2020)
+- NodeJS Security
 
 2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
    work in progress
@@ -85,16 +86,6 @@ Yarn takes up a lot of disk space, but is faster, manages licences better howeve
 * Scotch[https://scotch.io/tutorials/yarn-package-manager-an-improvement-over-npm]
 * Keycdn (almost the same as scotch.io) [https://www.keycdn.com/blog/npm-vs-yarn]
 
-Removing untracked files
-[https://linuxize.com/post/how-to-remove-untracked-files-in-git/]
+Node version manager vs. Node package manager
 
-$git clean -d -n - lists directories that will be removed
-$git clean -d -i - allows you to select options file-by-file whether to keep or remove
-$git clean -d -f - force removes untracked directories
-$git clean -fx
-$git show-stash
-$git rebase origin/master
-
-More debugging options
-
-[https://stackoverflow.com/questions/61212/how-to-remove-local-untracked-files-from-the-current-git-working-tree]
+Uninstalling Node packages
