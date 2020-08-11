@@ -200,7 +200,7 @@ Add proxy just above es lint and below scripts
 },
 ```
 
-## Security and servers
+## Security and servers (see security folder for detailed breakdown)
 
 - keep dependencies up-to-date and secure
 - use official list promoted by the Express team

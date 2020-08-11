@@ -6,34 +6,7 @@
 
 WITHOUT THE PASSWORD AND USER NAME to the file and it is NOT a string
 
-3.  Make sure that the .env file is ignored in your `.gitignore` files - if you do not have a `.gitignore` then create one `touch .gitignore` and add all of these dot files to ignore when you pus to your repo
-
-```
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-```
+3.  Make sure that the .env file is ignored in your `.gitignore` files - if you do not have a `.gitignore` then create one `touch .gitignore` and add all of these dot files to ignore when you push to your repo
 
 4.  Now git commit to your git repository and check that the files have been ignored by going into your repo on GitHub
 

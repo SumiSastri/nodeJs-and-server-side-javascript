@@ -14,7 +14,7 @@ This project focuses on server-side JavaScript with Node.js. Certificates of com
 
 Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
-1. [Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript)
+1. [Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/certifications)
 
 - Node essential training (July 2020)
 - Node real-time web with Socket.io (Aug 2020)
@@ -24,7 +24,7 @@ Folders are organised in sections based on following documentation, research fro
 2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
    work in progress
 
-3. [Node and mongoDB]()
+3. [Node and mongoDB](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-mongo)
    work in progress
 
 4. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
