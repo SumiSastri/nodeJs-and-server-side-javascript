@@ -77,6 +77,14 @@ Restful-React - As React defines itself as a front-end library, it allows users 
 
 Read More on API's and MVC [https://www.codecademy.com/articles/what-is-rest][https://www.codecademy.com/articles/mvc]
 
+#### What is the JavaScript event-loop?
+
+Node and express provide an event-driven architecture for apps and projects. An event is a series of occurences driven by changes on the frontend. Events build up in the task queue and are executed by parsers (both in the front-end and back-end).
+
+As javascript is a single-threaded non-blocking code base, it is able to deal with multiple tasks on the task queue driven by events.
+
+For more detail on the event-loop, MDN documentation [https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop]
+
 #### What is Ajax and async JavaScript?
 
 Ajax was created by google to allow you to make a get request (client-side) which is sent to back-end servers. The server sends back a response but instead of loading everything at the same time, a code block is run on load, and assigns only those elements that need to be re-rendered) without reloading the page whole page while data (or the payload) is sent in the background. It is a combination of tools and is mainly accessed via the global `fetch`method in browsers.

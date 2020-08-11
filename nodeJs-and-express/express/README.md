@@ -109,10 +109,10 @@ const router = express.Router();
 
 The Express Router also has its own methods but to run routes - to separate concerns, these methods are usually moved out of the `server.js` file into a controllers or backend-routes folder and imported back into the server.
 
-`router.get()` - gets resources from the FE or a dB on a request
-`router.post()` - publishes the data either on the FE or to the dB
-`router.put()` - updates the data either on the FE or the dB
-`router.delete()` - deletes data either on the FE or dB
+`router.get()` - gets resources from a URL end-point in the request body
+`router.post()` - gets resources from a URL end-point and updates it in the response sent
+`router.put()` - gets resources from a URL end-point based on an uniqueID and updates a particular resource in the response sent
+`router.delete()` - gets resources from a URL end-point based on a unique ID and permanantly deletes a particular resource in the response sent
 
 **Routing params**
 The params of the req. method to find a specific id. In a route you may want to find a specific resource, you will need to specify that in the route path with a slash, colon as the first arg and then run the request response args. If you use the `(req.params.id)` method, you will the data of the id of the resource required. The method is in the demo file `routingWithIds.js`

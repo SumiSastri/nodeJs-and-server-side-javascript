@@ -73,11 +73,3 @@ const YourAppUser = require('./yourAppUserData');
 const user1 = new YourAppUser('SpaceInvader', 'Raj', 'Singh', 'raj@email.com', 0797979797);
 
 ```
-
-#### What is the JavaScript event-loop?
-
-Node and express provide an event-driven architecture for apps and projects. An event is a series of occurences driven by changes on the frontend. Events build up in the task queue and are executed by parsers (both in the front-end and back-end).
-
-As javascript is a single-threaded non-blocking code base, it is able to deal with multiple tasks on the task queue driven by events.
-
-For more detail on the event-loop, MDN documentation [https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop]

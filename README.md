@@ -55,8 +55,11 @@ Why use Node - Medium blog [https://medium.com/the-node-js-collection/why-the-he
 
 #### What is nodemon?
 
-Nodemon hot loads the back end server so you do not need to run commands such as `node src/backend/app.js`
+Nodemon hot loads the back end server every time you update the code base.
+
 Check in your package-JSON for the install and read documentation [https://github.com/remy/nodemon] which helps bug fixing if you encounter challenges hot-loading.
+
+You need to change the package-json scripts eg: `"start": "nodemon server.js --exec babel-node -e js",` and use npm run start
 
 #### Backend package managers - Node vs. Yarn
 
@@ -87,5 +90,7 @@ Yarn takes up a lot of disk space, but is faster, manages licences better howeve
 * Keycdn (almost the same as scotch.io) [https://www.keycdn.com/blog/npm-vs-yarn]
 
 Node version manager vs. Node package manager
+Blog[https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-your-machine-in-a-flash-17babb7d5f1b]
 
 Uninstalling Node packages
+Documentation [https://docs.npmjs.com/cli/uninstall]
