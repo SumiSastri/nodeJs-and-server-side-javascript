@@ -4,13 +4,19 @@ With the installation of MongoDB, you will get the command line interface (CLI) 
 
 Check you have MongoDB installed type mongo --version in terminal for version you should get an output of something like this [MongoDB shell version v4.2.1] - you are now ready to use MongoShell locally.
 
-Go to the terminal `use dbName` You will get a prompt `switched to dbName` - the name of the db you have just created. In terminal now initialise your db as the user using this command.
+Follow the steps in Method1: To create a directory and access permissions to the directory in the main folder. If your `show dbs` has worked you can now run all the other commands.
+
+Go to the terminal `use dbName` You will get a prompt `switched to dbName` - the name of the db you have just created. In terminal now initialise your db as the user using this command.\
 
 ```
 db.createUser({ user: 'dbName', pwd: 'dbName', roles: [ "readWrite", "dbAdmin" ] })
 ```
 
 You have now created yourself as the new user of this db.
+
+If you already have set up a db in the cloud and want to access it
+
+user: chat-app-user
 
 ### Frequently used MongoShell commands
 show dbs [show databases]
