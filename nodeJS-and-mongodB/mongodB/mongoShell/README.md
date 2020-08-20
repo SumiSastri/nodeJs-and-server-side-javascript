@@ -50,21 +50,9 @@ db.nameOfCollection.insertMany([{}]) [insert multiple documents as an array of o
 
 ```
 db.products.insertMany([
-{
-service: "Old Co Ltd",
-products:"Small Wongle",
-price: 3,
-tags:["uk", "eu", "usa"],
-user: {
-	name:"Jack Ma",
-	email:'jack@ma.com'
-},
-date:Date()
-},
 
 {
 service: "Old Co Ltd",
-products:"Medium Wongle",
 price: 10,
 tags:["uk", "eu", "usa"],
 user: {
@@ -101,11 +89,11 @@ date:Date()
 ])
 ```
 
-db.nameOfCollection.find().pretty() [see the whole collection in a readable format eg. ```db.products.find().pretty()```]
+db.nameOfCollection.find({}).pretty() [see the whole collection in a readable format eg. ```db.products.find().pretty()```]
 
 db.nameOfCollection.find({key: "value"}).pretty() [see a particular part of the data entry eg. ```db.products.find({products: "Small Wongle"}).pretty()``` ]
 
-db.nameOfCollection.find().sort({key:-1}).pretty() [sort in descending order eg. ```db.products.find().sort({price: -1}).pretty()```]
-db.nameOfCollection.find().sort({key:1}).pretty() [sort in ascending order]
+db.nameOfCollection.find({}).sort({key:-1}).pretty() [sort in descending order eg. ```db.products.find().sort({price: -1}).pretty()```]
+db.nameOfCollection.find({}).sort({key:1}).pretty() [sort in ascending order]
 
 READ[https://www.w3schools.com/nodejs/nodejs_mongodb_find.asp][http://mongodb.github.io/node-mongodb-native/3.2/tutorials/connect/] Understanding how assert works [https://stackoverflow.com/questions/28129223/node-js-assert-module-in-mongodb-driver-documentation] Understanding the syntax and call back function within MongoDB [https://mongodb.github.io/node-mongodb-native/api-generated/mongoclient.html]
