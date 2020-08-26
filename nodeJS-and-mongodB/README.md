@@ -121,26 +121,33 @@ To check everything is working type mongod in the terminal. It will print a lot 
 I NETWORK [thread1] waiting for connections on port 27017
 ```
 
-If you get a socket in use error code 100 Catalina update stack overflow guidance [https://stackoverflow.com/questions/47975929/socketexception-address-already-in-use-mongodb]
+If you get a socket in use error code 100 Catalina update stack overflow guidance
+If the socket is already in use
+
+- [https://stackoverflow.com/questions/47975929/socketexception-address-already-in-use-mongodb]
+- [https://stackoverflow.com/questions/29813648/failed-to-unlink-socket-file-error-in-mongodb-3-0]
+  You may want to remove the temporary socket and then run mongo or mongod as a command
+
+```
+sudo rm /tmp/mongodb-27017.sock
+```
 
 Here are some Catalina installation challenges - questions answered [https://stackoverflow.com/questions/58283257/mongodb-doesnt-work-on-latest-mac-os10-15] Here is a reddit thread [https://www.reddit.com/r/mongodb/comments/d7takd/macos_x_catalina_105_beta_and_mongo_a_warning/]
 
 Some debugging on permissioning:
 
-- [https://stackoverflow.com/questions/29813648/failed-to-unlink-socket-file-error-in-mongodb-3-0]
 - [https://stackoverflow.com/questions/42446931/mongodb-exception-in-initandlisten-20-attempted-to-create-a-lock-file-on-a-rea]
-- [https://stackoverflow.com/questions/47975929/socketexception-address-already-in-use-mongodb]
 
 Try running
 
 ```
+sudo chmod -R a+wxr /data
+```
+
+Then
+
+```
 $ sudo mongod
-```
-
-A better solution is to remove the temporary socket and then run mongo or mongod as a command
-
-```
-sudo rm /tmp/mongodb-27017.sock
 ```
 
 In terminal Run a `show dbs` and you should see
