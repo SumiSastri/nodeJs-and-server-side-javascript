@@ -1,3 +1,11 @@
+A MongoDB database is one big object containing collections.
+Each collection has contextual items, for example, contacts for a database.
+Then inside a collection we have documents which are the contacts themselves.
+User contact information would be in several indivdual documents.
+Inside each document we have the data for each contact, such as address, telephone, email, et cetera.
+
+The document, itself, looks like a JSON object with a key-value pair approach or arrays of data. Mongoose, middleware, allows us to set a schema for a collection and predefine what each key-value pair takes as type.
+
 #### What is the MEAN-MERN stack?
 
 A stack is a collection of technologies used to run an app. The MEAN stack and MERN stack are an end-to-end javascript collection of technologies used to build apps using the Mongo database and mongoose.js/ express.js as a runner, angular.js or react.js for the front-end ui-ux and node.js to connect the Mongo database to the front-end libraries.
@@ -44,6 +52,16 @@ It is GUI (graphical user interface) to get a quick view of the shape and state 
 There has been a number of updates to Compass and the UI keeps changing, the functionality should remain the same.
 
 See the steps below to connect your Atlas instance in the cloud to the database and use the cloud-based interface using Compass.
+
+**What is Robomongo**
+
+RoboMongo is a tool to test our Mongo database and make sure the data we have in our database matches the calls we make to the imports. It is the free, lightweight, open-source MongoDB GUI with an embedded mongo shell, real auto-completion, and support for
+
+[robomongo.org] gives you htwo options: you can download the Studio 3T Only which has a lot of extra features; you can download Robo 3T Only which will connect and do some of the features that we need; or you can download them both and install them.
+
+Robo 3T when downloaded on a Mac, may not immediately install due to the security settings on a Mac. Go to settings and privacy/security and add Robot3T to the list of trusted apps.
+
+When you double click on the app make sure before you start Robo 3T, that MongoDB has been started. Then only will the connect button on the Robot 3T work and connect with the MongoDB via your server. Once MongoDB is connected to the server and app open a new connection in Robo 3T.
 
 ## Installing MongoDB locally
 

@@ -1,4 +1,4 @@
-Body parser is a server midware that changes or parses data into JSON.
+Body parser is a server midware that changes or parses data into JSON. It is a node package that allows us to parse the JSON http request into our server and make sure that it is running properly.
 
 Documentation [https://www.npmjs.com/package/body-parser]
 

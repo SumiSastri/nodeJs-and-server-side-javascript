@@ -19,6 +19,70 @@ The backend (server side) depends on API's to run HTTP requests from databases t
 
 The process of converting the data in javascript from a backend database in a language that is not javascript is done through JSON - javascript object notation.
 
+## What is middleware
+
+Middleware are simply functions that have access to the request and response object in our express application and can run their code there. It can make changes to the request response objects, can end them, can call another function in the stack using next. The `.next()` method explictly calls the next function in the stack to be executed, for the JavaScript parser. The `.end()` method likewise, explicitly calls the function calls in a block to terminate.
+
+Middleware makes use of promises, async functions and the event loop in JavaScript.
+
+To test middle ware, you can clog the orginal- url to make sure the middleware is fetching the right url end point and check that the method is working by requesting the method.
+
+```
+  app
+    .route("/api-users/:userId")
+    .get((req, res, next) => {
+        <!-- tests middleware -->
+      console.log(`Request from: ${req.originalUrl}`);
+      console.log(`Request type: ${req.method}`);
+      next();
+    }, getUserById)
+    // .get((req, res) =>
+    //   res.send("/api-users/:userId GET- get user by Id request successful!")
+    // )
+```
+
+If you go to your node console you will see the logs.
+
+## What is the JavaScript event-loop?
+
+Node and express provide an event-driven architecture for apps and projects. An event is a series of occurences driven by changes on the frontend. Events build up in the task queue and are executed by parsers (both in the front-end and back-end).
+
+As JavaScript is a single-threaded non-blocking code base, it is able to deal with multiple tasks on the task queue driven by events.
+
+For more detail on the event-loop, MDN documentation [https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop]
+
+## What is Ajax and async JavaScript?
+
+Ajax was created by google to allow you to make a get request (client-side) which is sent to back-end servers. The server sends back a response but instead of loading everything at the same time, a code block is run on load, and assigns only those elements that need to be re-rendered) without reloading the page whole page while data (or the payload) is sent in the background. It is a combination of tools and is mainly accessed via the global `fetch`method in browsers.
+
+React does not have its own in-built AJAX library.
+
+Most server-side code is parsed synchronously - which means each thread executes one function before going on to the next. JavaScript uses a single thread asynchronously to handle several front end requests at the same time.
+
+These requests are sent as an event queue to the server side. JavaScript methods such as call back functions, promises, etc, allows the front-end call stack (requests in an event-queue) to handle all these requests and return in the response from the server side back to the client the elements that can be rendered quickly first while others that need more time to send the data later.
+
+Async JavaScript is used extensively in connecting the backend to front-end user interfaces and forms and important part in joining up the stack. It is specifically used for single-page-applications.
+
+Some other async methods are `setState({]})` event handlers `onClick.()` and `setTimeOUt.()` are some other examples.
+
+For more on async JavaScript, callbacks, promises and recursion checkout Gray's Kodiri videos [https://www.youtube.com/watch?v=pX74\_\_nD48I][https://www.youtube.com/watch?v=f5xd1jnhkp8] [https://www.youtube.com/watch?v=PlhmNNNyYyogit]
+
+## ES-6 call-backs vs. Promises
+
+A call back is executed when one function calls another function. Map,filter and reduce are call-back functions. There is a synchronous nested functionality where one code block has to run before the other can be executed and can lead to what was known as "call-back-hell" or "the pyramid-of-doom". It was also dependent on several conditional statements
+
+Promises serve the same purpose as call-backs were created in ES-6 to solve the call-back-hell problem with using the constructor method that takes two params - resolve and reject - the promise gets executed with a series of `.then` blocks that results in the promise ending with three states:-
+
+- Fulfilled
+- Rejected
+- Pending
+
+Promises take 2 arguments `return new Promise (resolve, reject)` followed by`.then()` blocks
+
+## ES-8 Async Await
+
+Async await is built on top of promises - it makes promises look like synchronous code. As JavaScript is now used both in the back-end and front-end, it helps server-side and client-side developers understand the code base. There are two key words `async` and `await` it is syntactic sugar over promises.
+
 ## What is JSON?
 
 MongoDB is a document database, and we frequently discuss data models looking at JSON representations of documents. In addition, the MongoDB query language, and much of the administration of MongoDB, requires some level of understanding of JSON.
@@ -77,42 +141,9 @@ Restful-React - As React defines itself as a front-end library, it allows users 
 
 Read More on API's and MVC [https://www.codecademy.com/articles/what-is-rest][https://www.codecademy.com/articles/mvc]
 
-#### What is the JavaScript event-loop?
+Quick Basics on RESTful API
+What it is and how we're going to build our application around it?
 
-Node and express provide an event-driven architecture for apps and projects. An event is a series of occurences driven by changes on the frontend. Events build up in the task queue and are executed by parsers (both in the front-end and back-end).
+In a nutshell a RESTful API is a way to transact with a back end using HTTP transactions. We use a series of calls like GET, POST, PUT, and DELETE with an HTML address to transact with our back end and its data.
 
-As javascript is a single-threaded non-blocking code base, it is able to deal with multiple tasks on the task queue driven by events.
-
-For more detail on the event-loop, MDN documentation [https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop]
-
-#### What is Ajax and async JavaScript?
-
-Ajax was created by google to allow you to make a get request (client-side) which is sent to back-end servers. The server sends back a response but instead of loading everything at the same time, a code block is run on load, and assigns only those elements that need to be re-rendered) without reloading the page whole page while data (or the payload) is sent in the background. It is a combination of tools and is mainly accessed via the global `fetch`method in browsers.
-
-React does not have its own in-built AJAX library.
-
-Most server-side code is parsed synchronously - which means each thread executes one function before going on to the next. JavaScript uses a single thread asynchronously to handle several front end requests at the same time.
-
-These requests are sent as an event queue to the server side. JavaScript methods such as call back functions, promises, etc, allows the front-end call stack (requests in an event-queue) to handle all these requests and return in the response from the server side back to the client the elements that can be rendered quickly first while others that need more time to send the data later.
-
-Async javascript is used extensively in connecting the backend to front-end user interfaces and forms and important part in joining up the stack. It is specifically used for single-page-applications.
-
-Some other async methods are `setState({]})` event handlers `onClick.()` and `setTimeOUt.()` are some other examples.
-
-For more on async javascript, callbacks, promises and recursion checkout Gray's Kodiri videos [https://www.youtube.com/watch?v=pX74\_\_nD48I][https://www.youtube.com/watch?v=f5xd1jnhkp8] [https://www.youtube.com/watch?v=PlhmNNNyYyogit]
-
-#### ES-6 call-backs vs. Promises
-
-A call back is executed when one function calls another function. Map,filter and reduce are call-back functions. There is a synchronous nested functionality where one code block has to run before the other can be executed and can lead to what was known as "call-back-hell" or "the pyramid-of-doom". It was also dependent on several conditional statements
-
-Promises serve the same purpose as call-backs were created in ES-6 to solve the call-back-hell problem with using the constructor method that takes two params - resolve and reject - the promise gets executed with a series of .then blocks that results in the promise ending with three states:-
-
-- Fulfilled
-- Rejected
-- Pending
-
-Promises take 2 arguments `return new Promise (resolve, reject)` followed by`.then()` blocks
-
-#### ES-8 Async Await
-
-Async await is built on top of promises - it makes promises look like synchronous code. As JavaScript is now used both in the back-end and front-end, it helps server-side and client-side developers understand the code base. There are two key words `async` and `await` it is syntactic sugar over promises.
+So when a front end client, web, or mobile needs to do transactions with a back end, it makes a call, like for example GET, with an API end point that looks like an HTML URL. And the API responds with a success or a failure with data if need be. We use GET calls to pull the data from a back end. Then, if we need to add new data we use POST. Next, if we need to update the data we use PUT. And finally, DELETE, well, if you need to delete data.
