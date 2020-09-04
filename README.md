@@ -89,7 +89,28 @@ Yarn takes up a lot of disk space, but is faster, manages licences better howeve
 * Scotch[https://scotch.io/tutorials/yarn-package-manager-an-improvement-over-npm]
 * Keycdn (almost the same as scotch.io) [https://www.keycdn.com/blog/npm-vs-yarn]
 
-Node version manager vs. Node package manager
+**A note about Node Package Manager vs. Node Version Manager**
+
+Node version manager is a bash script that helps you work with several versions of node depending on the application.
+
+Install instructions:
+
+1. Clone [git clone http://github.com/creationix/nvm.git .nvm] OR `[git clone git://github.com/creationix/nvm.git $nvm_target]
+2. Curl [$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh]
+3. Find the file [ls -a | grep .nvm]
+4. Clean up installation [touch ~/.bash_profile]
+5. Re-run curl [curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash]
+6. Shut down and restart terminal run [source ~/.nvm/nvm.sh]
+7. Check if installed [nvm --version]
+
+Documentation: [https://github.com/nvm-sh/nvm]
+Debug: Stackoverflow has excellent suggestions
+
+- [https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found#comment46581365_16905910]
+  Read More: Medium articles (useful background but not useful really for set up and debugging
+- [https://medium.com/@isaacjoe/best-way-to-install-and-use-nvm-on-mac-e3a3f6bc494d]
+- [https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-your-machine-in-a-flash-17babb7d5f1b]
+
 Blog[https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-your-machine-in-a-flash-17babb7d5f1b]
 
 Uninstalling Node packages
