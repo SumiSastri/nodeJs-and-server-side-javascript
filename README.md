@@ -1,16 +1,15 @@
 # Table of Contents
 
 1. [Project goals](#Project-goals)
-2. [Folder structure](#Folder-structure)
+2. [Certifications](#Certifications)
 3. [Project access](#Project-access)
-
-   [RESOURCES](#Resources)
+4. [RESOURCES](#Resources)
 
 #### Project goals
 
 This project focuses on server-side JavaScript with Node.js. Certificates of completion from Linked-in Learning focusing on levelling-up server-side js.
 
-#### Folder structure
+#### Certifications
 
 Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
@@ -19,19 +18,18 @@ Folders are organised in sections based on following documentation, research fro
 - Node essential training (July 2020)
 - Node real-time web with Socket.io (Aug 2020)
 - Express essential training(Aug 2020)
-- NodeJS Security
+- NodeJS Security (Aug 2020)
+- MERN Essential Training(Aug 2020)
 
-2. [Node and databases](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-dbs)
-   work in progress
+Key folders for code base
 
-3. [Node and mongoDB](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/node-and-mongo)
-   work in progress
+- [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 
-4. [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
-
-5. [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
+- [Node and Express.js as a server](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJs-and-express)
 
 #### Project access
+
+- [Back to Table of Contents](#Table-of-Contents)]
 
 **Install dependencies**
 
@@ -42,6 +40,8 @@ Folders are organised in sections based on following documentation, research fro
 cd into file path node filename or node filepath/filename
 
 #### RESOURCES
+
+- [Back to Table of Contents](#Table-of-Contents)]
 
 Node Documentation
 Home Page -[https://nodejs.org/en/docs/guides/getting-started-guide/]
@@ -115,3 +115,5 @@ Blog[https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-you
 
 Uninstalling Node packages
 Documentation [https://docs.npmjs.com/cli/uninstall]
+
+- [Back to Table of Contents](#Table-of-Contents)]
