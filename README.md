@@ -7,7 +7,7 @@
 
 #### Project goals
 
-This project focuses on server-side JavaScript with Node.js. Certificates of completion from Linked-in Learning focusing on levelling-up server-side js.
+This project focuses on server-side JavaScript with Node.js. Certificates of completion from Linked-in Learning focusing on levelling-up server-side js. The project is work-in-progress - I would like to separate Express and Mongo into separate folders and work on a project that applies NodeJS skills.
 
 #### Certifications
 
@@ -19,6 +19,7 @@ Folders are organised in sections based on following documentation, research fro
 - Node real-time web with Socket.io (Aug 2020)
 - Express essential training(Aug 2020)
 - NodeJS Security (Aug 2020)
+- Building RESTful APIs with Node & Express (Aug 2020)
 - MERN Essential Training(Aug 2020)
 
 Key folders for code base
