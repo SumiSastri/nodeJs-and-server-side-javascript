@@ -7,11 +7,9 @@
 
 ## Project goals
 
-This project focuses on server-side JavaScript with Node.js. Certificates of completion from Linked-in Learning focusing on levelling-up server-side skills. It covers the fundamental concepts from Linked-in Learning tutorials.
+This project focuses on server-side JavaScript with NodeJS. Certificates of completion from Linked-in Learning focusing on levelling-up server-side skills. It covers the fundamental concepts from Linked-in Learning tutorials.
 
 ## Certifications
-
-Folders are organised in sections based on following documentation, research from blogs and following some tutorials for specific areas that I found difficult to understand. It serves as a place I can go to for quick reference to code snippets.
 
 - [Certificates of courses completed](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/certifications)
 
@@ -21,25 +19,15 @@ Folders are organised in sections based on following documentation, research fro
 - NodeJS Security (Aug 2020)
 - Building RESTful APIs with Node & Express (Aug 2020)
 
-Code base: -
-- [Node fundamental concepts](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
-
-
 ## Project access
 
-- [Back to Table of Contents](#Table-of-Contents)]
+[Link to view code in GitHub](https://github.com/SumiSastri/node.js-and-server-side-javascript/tree/master/nodeJS)
 
-**Install dependencies**
+[Link to clone source files](https://github.com/SumiSastri/nodeJs-server-side-javascript.git)
 
-`npm install -y` in each subfolder. Install dependencies outlined in the README.md files in each section.
-
-**Run logs with vanilla JS files**
-
-cd into file path node filename or node filepath/filename
+Run `npm install -y` in each subfolder. 
 
 ## RESOURCES
-
-- [Back to Table of Contents](#Table-of-Contents)]
 
 __Node Documentation__
 Home Page -[https://nodejs.org/en/docs/guides/getting-started-guide/]
@@ -50,3 +38,6 @@ __Articles__
 
 Netgurus guide [https://www.netguru.com/blog/use-node-js-backend] a good pdf that can be downloaded is on the website
 Why use Node - Medium blog [https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e]
+
+
+- [Back to Table of Contents](#Table-of-Contents)]
